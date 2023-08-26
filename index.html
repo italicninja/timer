@@ -1,0 +1,316 @@
+<HTML>
+  <HEAD>
+    <LINK REL="SHORTCUT ICON" HREF="http://www.pyogenes.com/favicon.ico">
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-16">
+
+    <SCRIPT src="timer4.js" Language="JavaScript"></SCRIPT>
+    <style TYPE="text/css">
+    <!--
+	A:link{
+		color: #004444;
+		text-decoration: none;
+	}
+
+	A:visited{
+		color: #004444;
+		text-decoration: none;
+	}
+
+	A:hover{
+		color: #004444;
+		text-decoration: none;
+		}
+
+	A.more{
+		color: #004444;
+		text-decoration: none;
+	}
+
+	A.hdline {
+		color: #004444;
+	}
+
+      H2 {
+            font-family: MS Courier New;
+            font-size: 8pt;
+            font-weight: normal;
+      }
+
+	.date {
+		font-family: Arial,sans-serif;
+		font-size: 18pt;
+		font-weight: bold;
+		font-style: italic;
+		margin-left: 3pt;
+	}
+
+	.box {
+		color:#000000;
+		font-size: 9pt;
+		border-top:.5pt solid #004090;
+		border-right:.5pt solid #004090;
+		border-bottom:.5pt solid #004090;
+		border-left:.5pt solid #004090;
+		background-color:white;
+	}
+
+      .divarea {
+            padding-left: 0pt;
+            padding-right: 0pt;
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+      }
+
+	.blank {
+		color:#000000;
+		font-size: 9pt;
+		border-top:0pt;
+		border-right:0pt;
+		border-bottom:0pt;
+		border-left:0pt;
+		background-color:white;
+	}
+
+	.cal {
+		color:#000000;
+		font-size:9pt;
+		border-top:0pt;
+		border-right:0pt;
+		border-bottom:0pt;
+		border-left:0pt;
+		background-color:white;
+	}
+
+	.ships {
+		color:#000000;
+		border-top:.5pt solid blue;
+		border-right:.5pt solid blue;
+		border-bottom:.5pt solid blue;
+		border-left:.5pt solid blue;
+		background-color:white;
+	}
+
+	.timer {
+		color:#dd6633;
+		border-top:.5pt solid orange;
+		border-right:.5pt solid orange;
+		border-bottom:.5pt solid orange;
+		border-left:.5pt solid orange;
+		background-color:white;
+	}
+
+
+    -->
+    </style>
+  </HEAD>
+
+  <BODY BGCOLOR="#FFFFFF" onload="printPage()">
+    <FONT SIZE="+3">FFXI Time Information</FONT>
+    <BR>by Pyogenes
+    <BR>Press F11 to fit page on a 800x600 screen
+<BR>
+<FONT SIZE=+1><A HREF='http://forum.pyogenes.com'>Forum open for FFXI Timer suggestions</A></FONT>
+<BR><FONT SIZE=-1>If you're on Sylph, give Kisana a birthday /poke!</font>
+
+    <FORM NAME='Timer' CLASS='Controls'>
+    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
+      <TR>
+        <TD WIDTH=215 VALIGN="top">
+          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
+            <TR>
+              <TD WIDTH=200 HEIGHT=185>
+                <B><FONT COLOR="#500000">General Info</FONT></B>
+                <BR><B>Vana'diel Time</B>
+                <BR><div id="vTime"> &nbsp; </div>
+                <B>Earth Time</B>
+                <BR><div id="eTime"> &nbsp; </div>
+                <B>Current Moon Phase</B>
+                <BR><div id="mPhase"> &nbsp; </div>
+                <B>Conquest - Next Tally</B>
+                <BR><div id="conquest"> &nbsp; </div>
+              </TD>
+            </TR>
+          </TABLE>
+        </TD>
+
+        <TD WIDTH=345 VALIGN='TOP'>
+          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
+		    <TR>
+		      <TD WIDTH=330 HEIGHT=185 VALIGN='TOP'>
+		        <B><FONT COLOR="#500000">Crafting Guild Info</FONT></B>
+		        <DIV ID="Guilds"> &nbsp; </DIV>
+		      </TD>
+		    </TR>
+          </TABLE>
+        </TD>
+
+        <TD WIDTH=227 VALIGN='TOP'>
+          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
+            <TR>
+              <TD WIDTH=240 HEIGHT=185 VALIGN='TOP'>
+                <B><A HREF=#  onmousedown='javascript:clearDetails()'><FONT COLOR="#500000">Details</FONT></A></B>
+                <DIV ID="Details"> &nbsp; </DIV>
+              </TD>
+            </TR>
+          </TABLE>
+        </TD>
+
+      </TR>
+    </TABLE>
+
+    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
+      <TR>
+        <TD VALIGN='TOP'>
+           <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
+             <TR>
+              <TD VALIGN="top" CLASS='box' WIDTH=380>
+                <TABLE CELLPADDING="0" CLASS='blank' CELLSPACING="0">
+                  <TR>
+                    <TD WIDTH=150>
+                      <B><FONT COLOR="#500000">Selbina-Mhaura Ferry</FONT></B>
+                    </TD>
+                    <TD WIDTH='220' ALIGN='right'>
+                      Display lines:
+                      <SELECT NAME="FerryCount">
+                        <OPTION VALUE="0">0
+                        <OPTION VALUE="1">1
+                        <OPTION VALUE="2">2
+                        <OPTION VALUE="3" SELECTED>3
+                        <OPTION VALUE="4">4
+                        <OPTION VALUE="5">5
+                        <OPTION VALUE="10">10
+                        <OPTION VALUE="25">25
+                        <OPTION VALUE="50">50
+                        <OPTION VALUE="100">100
+                      </SELECT>
+                    </TD>
+                  </TR>
+                </TABLE>
+                <div id="ferry"> &nbsp; </div>
+              </TD>
+            </TR>
+            <TR><TD HEIGHT=10></TD></TR>
+            <TR>
+              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
+                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
+                  <TR>
+                    <TD WIDTH='150'>
+                      <B><FONT COLOR="#500000">Moon Calendar</FONT></B>
+                    </TD>
+                    <TD WIDTH='220' ALIGN='right'>
+                      Display lines:
+                      <SELECT NAME="Moon">
+                        <OPTION VALUE="0">0
+                        <OPTION VALUE="1">1
+                        <OPTION VALUE="2">2
+                        <OPTION VALUE="3" SELECTED>3
+                        <OPTION VALUE="4">4
+                        <OPTION VALUE="5">5
+                        <OPTION VALUE="10">10
+                        <OPTION VALUE="15">15
+                      </SELECT>
+                    </TD>
+                  </TR>
+                </TABLE>
+                <div id="mCalendar" CLASS='divarea'> &nbsp; </div>
+              </TD>
+            </TR>
+            <TR><TD HEIGHT=10></TD></TR>
+            <TR>
+              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
+                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
+                  <TR>
+                    <TD WIDTH='100'>
+                      <B><FONT COLOR="#500000">RSE Calendar</FONT></B>
+                    </TD>
+                    <TD WIDTH='270' ALIGN='right'>
+                      Race:
+                      <SELECT NAME="RSErace" CLASS="box">
+                        <OPTION VALUE="0">Male Hume
+                        <OPTION VALUE="1">Female Hume
+                        <OPTION VALUE="2">Male Elvaan
+                        <OPTION VALUE="3">Female Elvaan
+                        <OPTION VALUE="4">Male Tarutaru
+                        <OPTION VALUE="5">Female Tarutaru
+                        <OPTION VALUE="6">Mithra
+                        <OPTION VALUE="7">Galka
+                        <OPTION VALUE="8" SELECTED>All
+                      </SELECT>
+                      Display lines:
+                      <SELECT NAME="RSE" CLASS="box">
+                        <OPTION VALUE="0">0
+                        <OPTION VALUE="1">1
+                        <OPTION VALUE="2">2
+                        <OPTION VALUE="3" SELECTED>3
+                        <OPTION VALUE="4">4
+                        <OPTION VALUE="5">5
+                        <OPTION VALUE="6">6
+                        <OPTION VALUE="7">7
+                        <OPTION VALUE="8">8
+                        <OPTION VALUE="16">16
+                        <OPTION VALUE="24">24
+                        <OPTION VALUE="32">32
+                        <OPTION VALUE="40">40
+                      </SELECT>
+                    </TD>
+                  </TR>
+                </TABLE>
+                <div id="rCal"> &nbsp; </div>
+              </TD>
+            </TR>
+          </TABLE>
+        </TD>
+        <TD WIDTH=10></TD>
+        <TD VALIGN='TOP'>
+          <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
+            <TR>
+              <TD VALIGN='TOP' CLASS='box' WIDTH='380' HEIGHT='185'>
+                 <div id="Airship"> &nbsp; </div>
+              </TD>
+            </TR>
+            <TR><TD HEIGHT=10></TD></TR>
+            <TR>
+              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
+                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
+                  <TR>
+                    <TD WIDTH='150'>
+                      <B><FONT COLOR="#500000">Day Calendar</FONT></B>
+                    </TD>
+                    <TD WIDTH='220' ALIGN='right'>
+                      Display lines:
+                      <SELECT NAME="DayCount">
+                        <OPTION VALUE="0">0
+                        <OPTION VALUE="1">1
+                        <OPTION VALUE="2">2
+                        <OPTION VALUE="3" SELECTED>3
+                        <OPTION VALUE="4">4
+                        <OPTION VALUE="5">5
+                        <OPTION VALUE="10">10
+                        <OPTION VALUE="25">25
+                        <OPTION VALUE="50">50
+                        <OPTION VALUE="100">100
+                      </SELECT>
+                      <SELECT NAME="Day">
+                        <OPTION VALUE="0">Firesday
+                        <OPTION VALUE="1">Earthsday
+                        <OPTION VALUE="2">Watersday
+                        <OPTION VALUE="3">Windsday
+                        <OPTION VALUE="4">Iceday
+                        <OPTION VALUE="5">Lightningday
+                        <OPTION VALUE="6">Lightsday
+                        <OPTION VALUE="7">Darksday
+                        <OPTION VALUE="8" SELECTED>All
+                      </SELECT>
+                    </TD>
+                  </TR>
+                </TABLE>
+                <div id="days"> &nbsp; </div>
+              </TD>
+            </TR>
+          </TABLE>
+        </TD>
+      </TR>
+    </TABLE>
+    </FORM>
+  </BODY>
+</HTML>
