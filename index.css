@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+body.dark {background-color: #292c35;} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #fff;}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+A:link{
+    color: #004444;
+    text-decoration: none;
+}
+
+A:visited{
+    color: #004444;
+    text-decoration: none;
+}
+
+A:hover{
+    color: #004444;
+    text-decoration: none;
+    }
+
+A.more{
+    color: #004444;
+    text-decoration: none;
+}
+
+A.hdline {
+    color: #004444;
+}
+
+  H2 {
+        font-family: MS Courier New;
+        font-size: 8pt;
+        font-weight: normal;
+  }
+
+.date {
+    font-family: Arial,sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 3pt;
+}
+
+.box {
+    color:#000000;
+    font-size: 9pt;
+    border-top:.5pt solid #004090;
+    border-right:.5pt solid #004090;
+    border-bottom:.5pt solid #004090;
+    border-left:.5pt solid #004090;
+    background-color:white;
+}
+
+  .divarea {
+        padding-left: 0pt;
+        padding-right: 0pt;
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+  }
+
+.blank {
+    color:#000000;
+    font-size: 9pt;
+    border-top:0pt;
+    border-right:0pt;
+    border-bottom:0pt;
+    border-left:0pt;
+    background-color:white;
+}
+
+.cal {
+    color:#000000;
+    font-size:9pt;
+    border-top:0pt;
+    border-right:0pt;
+    border-bottom:0pt;
+    border-left:0pt;
+    background-color:white;
+}
+
+.ships {
+    color:#000000;
+    border-top:.5pt solid blue;
+    border-right:.5pt solid blue;
+    border-bottom:.5pt solid blue;
+    border-left:.5pt solid blue;
+    background-color:white;
+}
+
+.timer {
+    color:#dd6633;
+    border-top:.5pt solid orange;
+    border-right:.5pt solid orange;
+    border-bottom:.5pt solid orange;
+    border-left:.5pt solid orange;
+    background-color:white;
+}

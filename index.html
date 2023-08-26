@@ -4,103 +4,8 @@
     <META http-equiv="Content-Type" content="text/html;" charset="UTF-16">
 
     <SCRIPT src="timer5.js" Language="JavaScript"></SCRIPT>
-    <style TYPE="text/css">
-    <!--
-	A:link{
-		color: #004444;
-		text-decoration: none;
-	}
-
-	A:visited{
-		color: #004444;
-		text-decoration: none;
-	}
-
-	A:hover{
-		color: #004444;
-		text-decoration: none;
-		}
-
-	A.more{
-		color: #004444;
-		text-decoration: none;
-	}
-
-	A.hdline {
-		color: #004444;
-	}
-
-      H2 {
-            font-family: MS Courier New;
-            font-size: 8pt;
-            font-weight: normal;
-      }
-
-	.date {
-		font-family: Arial,sans-serif;
-		font-size: 18pt;
-		font-weight: bold;
-		font-style: italic;
-		margin-left: 3pt;
-	}
-
-	.box {
-		color:#000000;
-		font-size: 9pt;
-		border-top:.5pt solid #004090;
-		border-right:.5pt solid #004090;
-		border-bottom:.5pt solid #004090;
-		border-left:.5pt solid #004090;
-		background-color:white;
-	}
-
-      .divarea {
-            padding-left: 0pt;
-            padding-right: 0pt;
-            padding-top: 0pt;
-            padding-bottom: 0pt;
-      }
-
-	.blank {
-		color:#000000;
-		font-size: 9pt;
-		border-top:0pt;
-		border-right:0pt;
-		border-bottom:0pt;
-		border-left:0pt;
-		background-color:white;
-	}
-
-	.cal {
-		color:#000000;
-		font-size:9pt;
-		border-top:0pt;
-		border-right:0pt;
-		border-bottom:0pt;
-		border-left:0pt;
-		background-color:white;
-	}
-
-	.ships {
-		color:#000000;
-		border-top:.5pt solid blue;
-		border-right:.5pt solid blue;
-		border-bottom:.5pt solid blue;
-		border-left:.5pt solid blue;
-		background-color:white;
-	}
-
-	.timer {
-		color:#dd6633;
-		border-top:.5pt solid orange;
-		border-right:.5pt solid orange;
-		border-bottom:.5pt solid orange;
-		border-left:.5pt solid orange;
-		background-color:white;
-	}
-
-
-    -->
+    <SCRIPT src="buttons.js" Language="JavaScript"></SCRIPT>
+    <style TYPE="text/css" href="index.css">
     </style>
   </HEAD>
 
@@ -131,6 +36,14 @@
             </TR>
           </TABLE>
         </TD>
+        <div>
+        <input type="checkbox" class="checkbox" id="darklighttoggle">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
 
         <TD WIDTH=345 VALIGN='TOP'>
           <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
