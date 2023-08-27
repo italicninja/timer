@@ -2,7 +2,7 @@
 
 * {box-sizing: border-box;}
 
-body {
+body.light {
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
   display: flex;
@@ -15,7 +15,18 @@ body {
   transition: background 0.2s linear;
 }
 
-body.dark {background-color: #292c35;} /* #9b59b6 */
+body.dark {
+  font-family: "Montserrat", sans-serif;
+  background-color: #292c35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+} /* #9b59b6 */
 
 body.dark h1, body.dark .support a {color: #fff;}
 
@@ -104,12 +115,12 @@ A.hdline {
     background-color:white;
 }
 
-  .divarea {
-        padding-left: 0pt;
-        padding-right: 0pt;
-        padding-top: 0pt;
-        padding-bottom: 0pt;
-  }
+.divarea {
+      padding-left: 0pt;
+      padding-right: 0pt;
+      padding-top: 0pt;
+      padding-bottom: 0pt;
+}
 
 .blank {
     color:#000000;

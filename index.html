@@ -1,228 +1,323 @@
-<HTML>
-  <HEAD>
-    <LINK REL="SHORTCUT ICON" HREF="https://italicninja.github.io/timer/favicon.png">
-    <META http-equiv="Content-Type" content="text/html;" charset="UTF-16">
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-16">
+    <link rel="shortcut icon" href="https://italicninja.github.io/timer/img/favicon.png">
+    <script src="js/timer.js" language="JavaScript"></script>
+    <script src="js/buttons.js" language="JavaScript"></script>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
 
-    <SCRIPT src="timer5.js" Language="JavaScript"></SCRIPT>
-    <SCRIPT src="buttons.js" Language="JavaScript"></SCRIPT>
-    <style TYPE="text/css" href="index.css">
-    </style>
-  </HEAD>
+  <body bgcolor="#FFFFFF" onload="printPage()">
+    <h1>FFXI Time Information</h1>
+    <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
+      (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
+    <p>Original by Pyogenes</p>
 
-  <BODY BGCOLOR="#FFFFFF" onload="printPage()">
-    <FONT SIZE="+3">FFXI Time Information</FONT>
-    <BR>Updated for fun by Itallicninja (Kitiara on HorizonXI)
-    <BR>Original by Pyogenes
-<BR>
+  <form NAME='Timer' CLASS='Controls'>
+    <table CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195 hidden="0">
+      <tr>
+        <td WIDTH=215 VALIGN="top">
+          <table id="generalTable" CLASS='box' CELLPADDING="2" CELLSPACING="0">
+            <tr>
+              <td WIDTH=200 HEIGHT=185>
+                <b><font COLOR="#500000">General Info</font></b>
+                <br><b>Vana'diel Time</b>
+                <br><div id="vTime"> &nbsp; </div>
+                <b>Earth Time</b>
+                <br><div id="eTime"> &nbsp; </div>
+                <b>Current Moon Phase</b>
+                <br><div id="mPhase"> &nbsp; </div>
+                <b>Conquest - Next Tally</b>
+                <br><div id="conquest"> &nbsp; </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <!-- <div>
+          <input type="checkbox" class="checkbox" id="darklighttoggle">
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div> -->
 
+        <td WIDTH=345 VALIGN='TOP'>
+          <button onclick="hideGuild()">hide</button>
+          <table id="guildTable" CLASS='box' CELLPADDING="2" CELLSPACING="0">
+            <tr>
+              <td WIDTH=330 HEIGHT=185 VALIGN='TOP'>
+                <b><font COLOR="#500000">Crafting Guild Info</font></b>
+                <div ID="Guilds"> &nbsp; </div>
+              </td>
+            </tr>
+          </table>
+        </td>
 
-    <FORM NAME='Timer' CLASS='Controls'>
-    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
-      <TR>
-        <TD WIDTH=215 VALIGN="top">
-          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD WIDTH=200 HEIGHT=185>
-                <B><FONT COLOR="#500000">General Info</FONT></B>
-                <BR><B>Vana'diel Time</B>
-                <BR><div id="vTime"> &nbsp; </div>
-                <B>Earth Time</B>
-                <BR><div id="eTime"> &nbsp; </div>
-                <B>Current Moon Phase</B>
-                <BR><div id="mPhase"> &nbsp; </div>
-                <B>Conquest - Next Tally</B>
-                <BR><div id="conquest"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-        <div>
-        <input type="checkbox" class="checkbox" id="darklighttoggle">
-        <label for="checkbox" class="checkbox-label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-        </label>
-      </div>
+        <td WIDTH=227 VALIGN='TOP'>
+          <table CLASS='box' CELLPADDING="2" CELLSPACING="0">
+            <tr>
+              <td WIDTH=240 HEIGHT=185 VALIGN='TOP'>
+                <b><a HREF=# onmousedown='javascript:clearDetails()'><font
+                      COLOR="#500000">Details</font></a></b>
+                <div ID="Details"> &nbsp; </div>
+              </td>
+            </tr>
+          </table>
+        </td>
 
-        <TD WIDTH=345 VALIGN='TOP'>
-          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
-		    <TR>
-		      <TD WIDTH=330 HEIGHT=185 VALIGN='TOP'>
-		        <B><FONT COLOR="#500000">Crafting Guild Info</FONT></B>
-		        <DIV ID="Guilds"> &nbsp; </DIV>
-		      </TD>
-		    </TR>
-          </TABLE>
-        </TD>
+      </tr>
+    </table>
 
-        <TD WIDTH=227 VALIGN='TOP'>
-          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD WIDTH=240 HEIGHT=185 VALIGN='TOP'>
-                <B><A HREF=#  onmousedown='javascript:clearDetails()'><FONT COLOR="#500000">Details</FONT></A></B>
-                <DIV ID="Details"> &nbsp; </DIV>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-
-      </TR>
-    </TABLE>
-
-    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-      <TR>
-        <TD VALIGN='TOP'>
-           <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
-             <TR>
-              <TD VALIGN="top" CLASS='box' WIDTH=380>
-                <TABLE CELLPADDING="0" CLASS='blank' CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH=150>
-                      <B><FONT COLOR="#500000">Selbina-Mhaura Ferry</FONT></B>
-                    </TD>
-                    <TD WIDTH='220' ALIGN='right'>
+    <table CLASS='blank' CELLPADDING="0" CELLSPACING="0">
+      <tr>
+        <td VALIGN='TOP'>
+          <table CLASS='blank' CELLPADDING="2" CELLSPACING="0">
+            <tr>
+              <td VALIGN="top" CLASS='box' WIDTH=380>
+                <table CELLPADDING="0" CLASS='blank' CELLSPACING="0">
+                  <tr>
+                    <td WIDTH=150>
+                      <b><font COLOR="#500000">Selbina-Mhaura Ferry</font></b>
+                    </td>
+                    <td WIDTH='220' ALIGN='right'>
                       Display lines:
-                      <SELECT NAME="FerryCount">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="25">25
-                        <OPTION VALUE="50">50
-                        <OPTION VALUE="100">100
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="ferry"> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR><TD HEIGHT=10></TD></TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='150'>
-                      <B><FONT COLOR="#500000">Moon Calendar</FONT></B>
-                    </TD>
-                    <TD WIDTH='220' ALIGN='right'>
-                      Display lines:
-                      <SELECT NAME="Moon">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="15">15
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="mCalendar" CLASS='divarea'> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR><TD HEIGHT=10></TD></TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='100'>
-                      <B><FONT COLOR="#500000">RSE Calendar</FONT></B>
-                    </TD>
-                    <TD WIDTH='270' ALIGN='right'>
-                      Race:
-                      <SELECT NAME="RSErace" CLASS="box">
-                        <OPTION VALUE="0">Male Hume
-                        <OPTION VALUE="1">Female Hume
-                        <OPTION VALUE="2">Male Elvaan
-                        <OPTION VALUE="3">Female Elvaan
-                        <OPTION VALUE="4">Male Tarutaru
-                        <OPTION VALUE="5">Female Tarutaru
-                        <OPTION VALUE="6">Mithra
-                        <OPTION VALUE="7">Galka
-                        <OPTION VALUE="8" SELECTED>All
-                      </SELECT>
-                      Display lines:
-                      <SELECT NAME="RSE" CLASS="box">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="6">6
-                        <OPTION VALUE="7">7
-                        <OPTION VALUE="8">8
-                        <OPTION VALUE="16">16
-                        <OPTION VALUE="24">24
-                        <OPTION VALUE="32">32
-                        <OPTION VALUE="40">40
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="rCal"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-        <TD WIDTH=10></TD>
-        <TD VALIGN='TOP'>
-          <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380' HEIGHT='185'>
-                 <div id="Airship"> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR><TD HEIGHT=10></TD></TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='150'>
-                      <B><FONT COLOR="#500000">Day Calendar</FONT></B>
-                    </TD>
-                    <TD WIDTH='220' ALIGN='right'>
-                      Display lines:
-                      <SELECT NAME="DayCount">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="25">25
-                        <OPTION VALUE="50">50
-                        <OPTION VALUE="100">100
-                      </SELECT>
-                      <SELECT NAME="Day">
-                        <OPTION VALUE="0">Firesday
-                        <OPTION VALUE="1">Earthsday
-                        <OPTION VALUE="2">Watersday
-                        <OPTION VALUE="3">Windsday
-                        <OPTION VALUE="4">Iceday
-                        <OPTION VALUE="5">Lightningday
-                        <OPTION VALUE="6">Lightsday
-                        <OPTION VALUE="7">Darksday
-                        <OPTION VALUE="8" SELECTED>All
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="days"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-      </TR>
-    </TABLE>
-    </FORM>
-  </BODY>
-</HTML>
+                      <select NAME="FerryCount">
+                        <option VALUE="0">0
+                          <option VALUE="1">1
+                            <option VALUE="2">2
+                              <option VALUE="3" SELECTED>3
+                                <option VALUE="4">4
+                                  <option VALUE="5">5
+                                    <option VALUE="10">10
+                                      <option VALUE="25">25
+                                        <option VALUE="50">50
+                                          <option VALUE="100">100
+                                          </select>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <div id="ferry"> &nbsp; </div>
+                                  </td>
+                                </tr>
+                                <tr><td HEIGHT=10></td></tr>
+                                <tr>
+                                  <td VALIGN='TOP' CLASS='box' WIDTH='380'>
+                                    <table CLASS='blank' CELLPADDING="0"
+                                      CELLSPACING="0">
+                                      <tr>
+                                        <td WIDTH='150'>
+                                          <b><font COLOR="#500000">Moon Calendar</font></b>
+                                        </td>
+                                        <td WIDTH='220' ALIGN='right'>
+                                          Display lines:
+                                          <select NAME="Moon">
+                                            <option VALUE="0">0
+                                              <option VALUE="1">1
+                                                <option VALUE="2">2
+                                                  <option VALUE="3" SELECTED>3
+                                                    <option VALUE="4">4
+                                                      <option VALUE="5">5
+                                                        <option VALUE="10">10
+                                                          <option VALUE="15">15
+                                                          </select>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                    <div id="mCalendar"
+                                                      CLASS='divarea'> &nbsp;
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                                <tr><td HEIGHT=10></td></tr>
+                                                <tr>
+                                                  <td VALIGN='TOP' CLASS='box'
+                                                    WIDTH='380'>
+                                                    <table CLASS='blank'
+                                                      CELLPADDING="0"
+                                                      CELLSPACING="0">
+                                                      <tr>
+                                                        <td WIDTH='100'>
+                                                          <b><font
+                                                              COLOR="#500000">RSE
+                                                              Calendar</font></b>
+                                                        </td>
+                                                        <td WIDTH='270'
+                                                          ALIGN='right'>
+                                                          Race:
+                                                          <select NAME="RSErace"
+                                                            CLASS="box">
+                                                            <option VALUE="0">Male
+                                                              Hume
+                                                              <option VALUE="1">Female
+                                                                Hume
+                                                                <option
+                                                                  VALUE="2">Male
+                                                                  Elvaan
+                                                                  <option
+                                                                    VALUE="3">Female
+                                                                    Elvaan
+                                                                    <option
+                                                                      VALUE="4">Male
+                                                                      Tarutaru
+                                                                      <option
+                                                                        VALUE="5">Female
+                                                                        Tarutaru
+                                                                        <option
+                                                                          VALUE="6">Mithra
+                                                                          <option
+                                                                            VALUE="7">Galka
+                                                                            <option
+                                                                              VALUE="8"
+                                                                              SELECTED>All
+                                                                            </select>
+                                                                            Display
+                                                                            lines:
+                                                                            <select
+                                                                              NAME="RSE"
+                                                                              CLASS="box">
+                                                                              <option
+                                                                                VALUE="0">0
+                                                                                <option
+                                                                                  VALUE="1">1
+                                                                                  <option
+                                                                                    VALUE="2">2
+                                                                                    <option
+                                                                                      VALUE="3"
+                                                                                      SELECTED>3
+                                                                                      <option
+                                                                                        VALUE="4">4
+                                                                                        <option
+                                                                                          VALUE="5">5
+                                                                                          <option
+                                                                                            VALUE="6">6
+                                                                                            <option
+                                                                                              VALUE="7">7
+                                                                                              <option
+                                                                                                VALUE="8">8
+                                                                                                <option
+                                                                                                  VALUE="16">16
+                                                                                                  <option
+                                                                                                    VALUE="24">24
+                                                                                                    <option
+                                                                                                      VALUE="32">32
+                                                                                                      <option
+                                                                                                        VALUE="40">40
+                                                                                                      </select>
+                                                                                                    </td>
+                                                                                                  </tr>
+                                                                                                </table>
+                                                                                                <div
+                                                                                                  id="rCal">
+                                                                                                  &nbsp;
+                                                                                                </div>
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                          </table>
+                                                                                        </td>
+                                                                                        <td
+                                                                                          WIDTH=10></td>
+                                                                                        <td
+                                                                                          VALIGN='TOP'>
+                                                                                          <table
+                                                                                            CLASS='blank'
+                                                                                            CELLPADDING="2"
+                                                                                            CELLSPACING="0">
+                                                                                            <tr>
+                                                                                              <td
+                                                                                                VALIGN='TOP'
+                                                                                                CLASS='box'
+                                                                                                WIDTH='380'
+                                                                                                HEIGHT='185'>
+                                                                                                <div
+                                                                                                  id="Airship">
+                                                                                                  &nbsp;
+                                                                                                </div>
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr><td
+                                                                                                HEIGHT=10></td></tr>
+                                                                                            <tr>
+                                                                                              <td
+                                                                                                VALIGN='TOP'
+                                                                                                CLASS='box'
+                                                                                                WIDTH='380'>
+                                                                                                <table
+                                                                                                  CLASS='blank'
+                                                                                                  CELLPADDING="0"
+                                                                                                  CELLSPACING="0">
+                                                                                                  <tr>
+                                                                                                    <td
+                                                                                                      WIDTH='150'>
+                                                                                                      <b><font
+                                                                                                          COLOR="#500000">Day
+                                                                                                          Calendar</font></b>
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                      WIDTH='220'
+                                                                                                      ALIGN='right'>
+                                                                                                      Display
+                                                                                                      lines:
+                                                                                                      <select
+                                                                                                        NAME="DayCount">
+                                                                                                        <option
+                                                                                                          VALUE="0">0
+                                                                                                          <option
+                                                                                                            VALUE="1">1
+                                                                                                            <option
+                                                                                                              VALUE="2">2
+                                                                                                              <option
+                                                                                                                VALUE="3"
+                                                                                                                SELECTED>3
+                                                                                                                <option
+                                                                                                                  VALUE="4">4
+                                                                                                                  <option
+                                                                                                                    VALUE="5">5
+                                                                                                                    <option
+                                                                                                                      VALUE="10">10
+                                                                                                                      <option
+                                                                                                                        VALUE="25">25
+                                                                                                                        <option
+                                                                                                                          VALUE="50">50
+                                                                                                                          <option
+                                                                                                                            VALUE="100">100
+                                                                                                                          </select>
+                                                                                                                          <select
+                                                                                                                            NAME="Day">
+                                                                                                                            <option
+                                                                                                                              VALUE="0">Firesday
+                                                                                                                              <option
+                                                                                                                                VALUE="1">Earthsday
+                                                                                                                                <option
+                                                                                                                                  VALUE="2">Watersday
+                                                                                                                                  <option
+                                                                                                                                    VALUE="3">Windsday
+                                                                                                                                    <option
+                                                                                                                                      VALUE="4">Iceday
+                                                                                                                                      <option
+                                                                                                                                        VALUE="5">Lightningday
+                                                                                                                                        <option
+                                                                                                                                          VALUE="6">Lightsday
+                                                                                                                                          <option
+                                                                                                                                            VALUE="7">Darksday
+                                                                                                                                            <option
+                                                                                                                                              VALUE="8"
+                                                                                                                                              SELECTED>All
+                                                                                                                                            </select>
+                                                                                                                                          </td>
+                                                                                                                                        </tr>
+                                                                                                                                      </table>
+                                                                                                                                      <div
+                                                                                                                                        id="days">
+                                                                                                                                        &nbsp;
+                                                                                                                                      </div>
+                                                                                                                                    </td>
+                                                                                                                                  </tr>
+                                                                                                                                </table>
+                                                                                                                              </td>
+                                                                                                                            </tr>
+                                                                                                                          </table>
+                                                                                                                        </form>
+                                                                                                                      </body>
+                                                                                                                    </html>

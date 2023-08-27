@@ -1,17 +1,3 @@
-<!--
-
-//  Usage:  Functions to calculate and format timing data for FFXI
-//  Written by:  Pyogenes from www.pyogenes.com
-
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-//                                                               //
-//    CODE IS FREE FOR USE AS LONG AS YOU GIVE CREDIT            //
-//    1.  List my website as the source                          //
-//    2.  Place a link on the page the code is used in           //
-//                                                               //
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 
 // basis date is used to convert real time to game time.
 // Use UTC functions to allow calculations to work for any timezone
@@ -37,7 +23,7 @@ Daydate.setUTCHours(9, 14, 24, 0);    // Set time to 09:14:24.0000
 
 EarthDay = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
 VanaDay = new Array("Firesday", "Earthsday", "Watersday", "Windsday", "Iceday", "Lightningday", "Lightsday", "Darksday");
-DayColor = new Array("#DD000", "#AAAA00", "#0000DD", "#00AA22", "#7799FF", "#AA00AA", "#AAAAAA", "#333333"); 
+DayColor = new Array("#DD000", "#AAAA00", "#0000DD", "#00AA22", "#7799FF", "#AA00AA", "#AAAAAA", "#333333");
 weakMagic = new Array("Ice","Lightning","Fire","Earth","Wind","Water","Darkness","Light");
 weakColor = new Array("#7799FF", "#AA00AA", "#DD000", "#AAAA00", "#00AA22", "#0000DD", "#333333", "#AAAAAA");
 PhaseName = new Array("Full Moon","Waning Gibbous","Last Quarter","Waning Crescent","New Moon","Waxing Crescent","First Quarter","Waxing Gibbous");
@@ -85,11 +71,11 @@ function getVanadielTime()  {
    if (vMin  < 10)   { VanaMin  = "0" + vMin; }  else { VanaMin  = vMin; }
    if (vSec  < 10)   { VanaSec  = "0" + vSec; }  else { VanaSec  = vSec; }
 
-   VanaTime = "<DIV onmouseover='javascript:dayDetails(vDay)'><FONT COLOR=" + DayColor[vDay] + ">" + VanaDay[vDay] + "</FONT>:  " 
+   VanaTime = "<DIV onmouseover='javascript:dayDetails(vDay)'><FONT COLOR=" + DayColor[vDay] + ">" + VanaDay[vDay] + "</FONT>:  "
    VanaTime += VanaYear + "-" + VanaMon + "-" + VanaDate + "  " + VanaHour + ":" + VanaMin + ":" + VanaSec + "</DIV>";
 
    document.getElementById("vTime").innerHTML = VanaTime;
-    
+
    getBallistaSummary(vDate, vMon);
 }
 
@@ -116,7 +102,7 @@ function getBallistaSummary(vDate, vMon)  {
       }
 
       balTeam = Math.floor((vMon - 1) / 4);
-   
+
       balJugner = balJug[vDate % 6];
       if (balJugner != "") {
          balJugner = "Jugner Forest: " + balJugner + "for " + balJugTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
@@ -129,7 +115,7 @@ function getBallistaSummary(vDate, vMon)  {
          if (balMeriph != "") {
             balMeriph = "Meriphataud Mountains: " + balMeriph + "for " + balMerTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
       }
-      
+
       out = out + balJugner + balPashhow + balMeriph + "<HR>";
    }
 
@@ -144,13 +130,13 @@ function dayDetails(firstDay)  {
       if (i != 0) { out = out + '<BR>';}
       out = out + '<FONT COLOR=' + DayColor[(firstDay + i) % 8] + '>' + VanaDay[(firstDay + i) % 8] + '</FONT>';
    }
-   
+
    out = out + '</TD><TD>';
    for ( i = 0; i < 8; i++) {
       if (i != 0) { out = out + '<BR>';}
       out = out + '<FONT COLOR=' + weakColor[(firstDay + i) % 8] + '>' + weakMagic[(firstDay + i) % 8] + '</FONT>';
    }
-   
+
    out = out + '</TD></TR></TABLE>'
    document.getElementById("Details").innerHTML = out;
 
@@ -185,7 +171,7 @@ function getConquest()  {
    if (conqHours < 10) { conqHours = '0' + Math.floor(conqHours ); } else { conqHours = Math.floor(conqHours ); }
    if (conqMin < 10) { conqMin = '0' + Math.floor(conqMin ); } else { conqMin = Math.floor(conqMin ); }
    if (conqSec < 10) { conqSec = '0' + Math.floor(conqSec ); } else { conqSec = Math.floor(conqSec ); }
-   
+
    conqDate = formatDate(now.getTime() + timeLeft, 2);
 
    conq = vanaConq + ' Vana´diel Days <BR>' + conqDate + ' (' + formatCountdown(timeLeft) + ')';
@@ -216,7 +202,7 @@ function getRSE()  {
 
       for ( i = 0; i < repeatCal; i++) {
          elapsedWeeks = Math.floor( (localtime - RSEtime) / (64 * msGameDay) ) + i;
-         
+
          elapsedLocationWeeks = Math.floor( (localtime - RSEtime) / (8 * msGameDay) ) + (8 * i);
          raceOffset = race - (elapsedLocationWeeks % 8);
          elapsedLocationWeeks = elapsedLocationWeeks + raceOffset;
@@ -225,7 +211,7 @@ function getRSE()  {
          RSEend = RSEstart + (8 * msGameDay);
          RSECal = RSECal + "<TR><TD>" + formatDate(RSEstart,2) + "</TD><TD>" + formatDate(RSEend,2) + "</TD><TD>";
          RSECal = RSECal + "<A HREF=#  onmousedown='javascript:getRSEDetails(" + (elapsedLocationWeeks % 3) + ")'>";
-         RSECal = RSECal + RSEloc[(elapsedLocationWeeks) % 3] 
+         RSECal = RSECal + RSEloc[(elapsedLocationWeeks) % 3]
          RSECal = RSECal + "</A></TD></TR>";
       }
      if (repeatCal < 1) { RSECal = ""; } else { RSECal = RSECal + '</TABLE>'; }
@@ -241,7 +227,7 @@ function getRSEDetails(varLocation)  {
 
    if (varLocation == 0)  {
       output = "<TABLE CLASS='blank'><TR><TH ALIGN='left'>Key Droppers</TH><TH></TH><TH></TH></TR>";
-      output = output + "<TR><TD VALIGN = 'TOP' WIDTH='75'>Sad Fly<BR>Gallinipper<BR>Rancid Ooze<BR>";      
+      output = output + "<TR><TD VALIGN = 'TOP' WIDTH='75'>Sad Fly<BR>Gallinipper<BR>Rancid Ooze<BR>";
       output = output + "Banshee<BR>Mauthe Dog<BR>Myconid<BR>Wight</TD>";
       output = output + "<TD VALIGN = 'TOP' WIDTH='85'>Ghast<BR>Wendigo<BR>Spunkie<BR>";
       output = output + "Amphisbeana<BR>Thunder Elemental<BR>Greater Pugil</TD>";
@@ -345,7 +331,7 @@ function getMoonPhase()  {
    nextOptPhase = "Next " + PhaseName[optPhase] + ": " + formatCountdown(toOptimalPhase);
 
    mnpercent = "<DIV onmouseover='javascript:getMoonDetails()'>" + mnpercent + "</DIV>  ";
-   
+
    document.getElementById("mPhase").innerHTML = mnpercent + nextPhase + "<BR>" + nextOptPhase;
 
 
@@ -380,7 +366,7 @@ function getMoonDetails()  {
 
    out = "Moon Information:";
    out = out + "<BR>Each lunar cycle takes exactly 84 game days (3 days, 8 hours, 38 minutes, 24 seconds)";
-   
+
    document.getElementById("Details").innerHTML = out;
 
 
@@ -422,65 +408,65 @@ function getShipSched()  {
 
 }
 
-function getAirSched() { 
+function getAirSched() {
 
-   var timenow = new Date(); 
-   var localTime = timenow.getTime(); 
-   var elapsedTime = (localTime - basisDate.getTime()) % msGameDay; 
-   var dayStart = localTime - elapsedTime; 
-   vanaDate = ((898 * 360 + 30) * msRealDay) + (localTime - basisDate.getTime()) * 25; 
-   vDay = Math.floor((vanaDate % (8 * msRealDay)) / (msRealDay)); 
+   var timenow = new Date();
+   var localTime = timenow.getTime();
+   var elapsedTime = (localTime - basisDate.getTime()) % msGameDay;
+   var dayStart = localTime - elapsedTime;
+   vanaDate = ((898 * 360 + 30) * msRealDay) + (localTime - basisDate.getTime()) * 25;
+   vDay = Math.floor((vanaDate % (8 * msRealDay)) / (msRealDay));
 
-   var offset1 = ((1 * 60) + 10) * 60 * 1000 / 25; // 1:10 offset used by B->J J->S 
-   var offset2 = ((2 * 60) + 40) * 60 * 1000 / 25; // 2:40 offset used by J->W K-J 
-   var offset3 = ((4 * 60) + 10) * 60 * 1000 / 25; // 4:10 offset used by J->B S->J 
-   var offset4 = ((5 * 60) + 35) * 60 * 1000 / 25; // 5:35 offset used by J->K 
-   var offset5 = ((5 * 60) + 45) * 60 * 1000 / 25; // 5:45 offset used by W->J 
+   var offset1 = ((1 * 60) + 10) * 60 * 1000 / 25; // 1:10 offset used by B->J J->S
+   var offset2 = ((2 * 60) + 40) * 60 * 1000 / 25; // 2:40 offset used by J->W K-J
+   var offset3 = ((4 * 60) + 10) * 60 * 1000 / 25; // 4:10 offset used by J->B S->J
+   var offset4 = ((5 * 60) + 35) * 60 * 1000 / 25; // 5:35 offset used by J->K
+   var offset5 = ((5 * 60) + 45) * 60 * 1000 / 25; // 5:45 offset used by W->J
 
    outAir = "";
-   outAir += "<TABLE CLASS='blank' WIDTH='400' CELLSPACING='0' CELLPADDING='0'>"; 
+   outAir += "<TABLE CLASS='blank' WIDTH='400' CELLSPACING='0' CELLPADDING='0'>";
    outAir += "<TR><TH ALIGN='LEFT'>Airship Route</TH>";
    outAir += "<TH ALIGN='LEFT'>Departure Day</TH>";
    outAir += "<TH ALIGN='LEFT'>Arrival</TH>";
    outAir += "<TH ALIGN='LEFT'>Departure</TH></TR>";
-   
-   outAir += AirHelper(elapsedTime, offset3, vDay, "Jeuno To Bastok"); 
-   outAir += AirHelper(elapsedTime, offset4, vDay, "Jeuno To Kazham"); 
-   outAir += AirHelper(elapsedTime, offset1, vDay, "Jeuno To San d'Oria"); 
-   outAir += AirHelper(elapsedTime, offset2, vDay, "Jeuno To Windurst"); 
-   outAir += AirHelper(elapsedTime, offset1, vDay, "Bastok To Jeuno"); 
+
+   outAir += AirHelper(elapsedTime, offset3, vDay, "Jeuno To Bastok");
+   outAir += AirHelper(elapsedTime, offset4, vDay, "Jeuno To Kazham");
+   outAir += AirHelper(elapsedTime, offset1, vDay, "Jeuno To San d'Oria");
+   outAir += AirHelper(elapsedTime, offset2, vDay, "Jeuno To Windurst");
+   outAir += AirHelper(elapsedTime, offset1, vDay, "Bastok To Jeuno");
    outAir += AirHelper(elapsedTime, offset2, vDay, "Kazham To Jeuno");
-   outAir += AirHelper(elapsedTime, offset3, vDay, "San d'Oria To Jeuno"); 
-   outAir += AirHelper(elapsedTime, offset5, vDay, "Windurst To Jeuno"); 
-   
-   outAir += "</TABLE>"; 
-   
-   document.getElementById("Airship").innerHTML = outAir; 
-} 
+   outAir += AirHelper(elapsedTime, offset3, vDay, "San d'Oria To Jeuno");
+   outAir += AirHelper(elapsedTime, offset5, vDay, "Windurst To Jeuno");
 
-function AirHelper(elapsed, offset, day, city) { 
+   outAir += "</TABLE>";
 
-   var newOffset = offset; 
-   var count = 0; 
-   while (newOffset < elapsed) { 
-      count += 1; 
-      newOffset += (msGameDay / 4); 
-   } 
-   if (count >= 4) { 
-      day = (day + 1) % 8; 
+   document.getElementById("Airship").innerHTML = outAir;
+}
+
+function AirHelper(elapsed, offset, day, city) {
+
+   var newOffset = offset;
+   var count = 0;
+   while (newOffset < elapsed) {
+      count += 1;
+      newOffset += (msGameDay / 4);
    }
-   
-   
-   output = "<TR><TD>" + city + "</TD>"; 
-   output += "<TD><FONT COLOR=" + DayColor[day] + ">" + VanaDay[day] + "</FONT></TD>"; 
+   if (count >= 4) {
+      day = (day + 1) % 8;
+   }
+
+
+   output = "<TR><TD>" + city + "</TD>";
+   output += "<TD><FONT COLOR=" + DayColor[day] + ">" + VanaDay[day] + "</FONT></TD>";
    arrivalTime = newOffset - elapsed - 144000;
    if (arrivalTime < 0)  {
       arrivalTime = 0;
    }
    output += "<TD>" + formatCountdown(arrivalTime,1) + "</TD>";
-   output += "<TD>" + formatCountdown(newOffset - elapsed,1) + "</TD></TR>"; 
-   
-   return output; 
+   output += "<TD>" + formatCountdown(newOffset - elapsed,1) + "</TD></TR>";
+
+   return output;
 }
 
 
@@ -493,8 +479,8 @@ function getDaySched()  {
    var weekStart = now.getTime() - (timeDiff % (8 * msGameDay));
 
    var repeatCal = document.Timer.DayCount.value;
-   var dayOffset = document.Timer.Day.value;   
-   
+   var dayOffset = document.Timer.Day.value;
+
    var out = "<TABLE CLASS='blank' CELLSPACING='0' CELLPADDING='0'><TR><TH WIDTH='75' ALIGN='left'>Day</TH><TH WIDTH='100' ALIGN='left'>Begins</TH><TH ALIGN='left' WIDTH='100'>Ends</TH><TH ALIGN='left' WIDTH='120'>Moon Phase</TH></TR>";
    if (dayOffset > 7) {
       for ( i = 0; i < repeatCal; i++) {
@@ -525,15 +511,15 @@ function getDaySched()  {
 
          }  else if (moonpercent >= 7 && moonpercent <= 38)  {
 	      mnPhase = 5;
-	      
+
          }  else if (moonpercent >= 37 && moonpercent <= 56)  {
 	      mnPhase = 6;
 
          }  else if (moonpercent >= 57 && moonpercent <= 89)  {
 	      mnPhase = 7;
-	      
+
          }
-         
+
          mnpercent = PhaseName[mnPhase] + " (" + Math.abs(moonpercent) + "%)";
 
          if (moonpercent <= 5 && moonpercent >= -10)  {
@@ -544,7 +530,7 @@ function getDaySched()  {
 
          out = out + "<TR><TD><FONT COLOR='" + DayColor[(dayOffset + i) % 8] + "'>" + VanaDay[(dayOffset + i) % 8] + "</FONT></TD><TD>" + formatDate(startTime, 2) + "</TD><TD>" + formatDate(endTime, 2) + "</TD><TD>" + mnpercent + "</TD></TR>";
       }
-   
+
    } else {
       for ( i = 0; i < repeatCal; i++) {
          startTime = weekStart + ((dayOffset - 6) * msGameDay) + (8 * msGameDay * i);
@@ -555,35 +541,35 @@ function getDaySched()  {
          moonpercent = - Math.round((42 - moonDays) / 42 * 100);
          if (moonpercent <= -94)  {
 	    mnPhase = 0;
-	 
+
 	 } else if (moonpercent >= 90)  {
             mnPhase = 0;
-	 
+
          }  else if (moonpercent >= -93 && moonpercent <= -62)  {
             mnPhase = 1;
-	 
+
          }  else if (moonpercent >= -61 && moonpercent <= -41)  {
             mnPhase = 2;
-	 
+
          }  else if (moonpercent >= -40 && moonpercent <= -11)  {
             mnPhase = 3;
-	 
+
          }  else if (moonpercent >= -10 && moonpercent <= 6)  {
             mnPhase = 4;
-	 
+
          }  else if (moonpercent >= 7 && moonpercent <= 38)  {
             mnPhase = 5;
-	 	      
+
          }  else if (moonpercent >= 37 && moonpercent <= 56)  {
             mnPhase = 6;
-	 
+
          }  else if (moonpercent >= 57 && moonpercent <= 89)  {
             mnPhase = 7;
-	 	      
+
          }
-         
+
          mnpercent = PhaseName[mnPhase] + " (" + Math.abs(moonpercent) + "%)";
-         
+
          if (moonpercent <= 5 && moonpercent >= -10)  {
               mnpercent = "<FONT COLOR='#FF0000'>" + mnpercent + "</FONT>";
          } else if (moonpercent >= 90 || moonpercent <= -95)  {
@@ -598,7 +584,7 @@ function getDaySched()  {
 }
 
 function getGuildHours()  {
-    
+
    alchemy = guildHelper(8, 23, 6);
    blacksmith = guildHelper(8, 23, 2);
    bonework = guildHelper(8, 23, 3);
@@ -623,7 +609,7 @@ function getGuildHours()  {
    guildOut = guildOut + "<TR><TD>" + "<A HREF=#  onmousedown='javascript:guildDetail(8)'>Fishing</A>" 		+ "</TD>" + fishing 	+ "</TR>";
    guildOut = guildOut + "<TR><TD>" + "<A HREF=#  onmousedown='javascript:guildDetail(9)'>Cooking</A>" 		+ "</TD>" + cooking 	+ "</TR>";
    guildOut = guildOut + "</TABLE>";
-   
+
    document.getElementById("Guilds").innerHTML = guildOut;
 
 
@@ -636,19 +622,19 @@ function guildHelper(open, close, holiday)  {
    var dayStart = localTime - elapsedTime;
 
    // this conversion factor tells us time elapsed since the game day started in milliseconds
-   var convFactor = 60 * 60 * 1000 / 25; 
-   
+   var convFactor = 60 * 60 * 1000 / 25;
+
    vanaDate =  ((898 * 360 + 30) * msRealDay) + (localTime - basisDate.getTime()) * 25;
    vDay  = Math.floor((vanaDate % (8 * msRealDay)) / (msRealDay));
 
    open = open * convFactor;
    close = close * convFactor;
-   
+
    openTime = open + dayStart;
    closeTime = close + dayStart;
    outputTxt = "";
    guildCountdown = 0;
-   
+
    if (openTime >= localTime) {
       guildCountdown = openTime - localTime;
       outputTxt2 = "</TD><TD><FONT COLOR='#DD0000'>Closed.</FONT> Open tomorrow.</TD>";
@@ -660,9 +646,9 @@ function guildHelper(open, close, holiday)  {
    } else if (closeTime <= localTime)  {
       guildCountdown = (msGameDay - elapsedTime) + open;
       outputTxt2 = "</TD><TD><FONT COLOR='#DD0000'>Closed.</FONT> Open tomorrow.</TD>";
-      outputTxt1 = "<TD>Opens in:</TD><TD>";      
+      outputTxt1 = "<TD>Opens in:</TD><TD>";
    }
-   
+
    // adjust for holiday
    if ((holiday == vDay) && (closeTime > localTime)) {
       guildCountdown = (msGameDay - elapsedTime) + open;
@@ -707,7 +693,7 @@ function guildDetail(guild)  {
       case 9:
          out = "Culinary guild <BR>Location:   Windurst Waters<BR>Holiday:  Darksday<BR>Hours:  5:00-20:00";
    }
-   
+
    document.getElementById("Details").innerHTML = out;
 }
 
@@ -732,7 +718,7 @@ function formatCountdown(varTime) {
          formattedTime = formattedTime + '0' + hourLeft + ':';
       } else {
          formattedTime = formattedTime + hourLeft + ':';
-      }         
+      }
    } else if (hourLeft > 0) {
       formattedTime = hourLeft + ':';
    }
@@ -755,7 +741,7 @@ function formatDate(varTime, showDay) {
    var day = varDate.getDay();
 
    var hh = varDate.getHours();
-   
+
    if (hh < 10) { hh = "0" + hh; }
 
    var min = varDate.getMinutes();
