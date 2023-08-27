@@ -7,16 +7,25 @@
   <script src="js/timer.js" language="JavaScript"></script>
   <script src="js/buttons.js" language="JavaScript"></script>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/darkmode.css">
 </head>
-
+<!-- Dark Mode Toggler -->
+<div>
+  <input type="checkbox" class="checkbox" id="darklighttoggle">
+  <label for="darklighttoggle" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+<!-- Main Body -->
 <body onload="printPage()">
   <h1>FFXI Time Information</h1>
   <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
     (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
   <p>Original by Pyogenes</p>
-
   <FORM NAME='Timer' CLASS='Controls'>
-    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
+    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195 id="general">
       <TR>
         <TD WIDTH=215 VALIGN="top">
           <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
@@ -25,16 +34,16 @@
                 <B>
                   <FONT COLOR="#500000">General Info</FONT>
                 </B>
-                <BR><B>Vana'diel Time</B>
+                <BR><B>Vana'diel Time:</B>
                 <BR>
                 <div id="vTime"> &nbsp; </div>
-                <B>Earth Time</B>
+                <B>Earth Time:</B>
                 <BR>
                 <div id="eTime"> &nbsp; </div>
-                <B>Current Moon Phase</B>
+                <B>Current Moon Phase:</B>
                 <BR>
                 <div id="mPhase"> &nbsp; </div>
-                <B>Conquest - Next Tally</B>
+                <B>Conquest - Next Tally:</B>
                 <BR>
                 <div id="conquest"> &nbsp; </div>
               </TD>

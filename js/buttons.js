@@ -1,6 +1,7 @@
-const checkbox = document.getElementById("darklighttoggle")
-checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("dark")
+const darklighttoggle = document.getElementById("darklighttoggle")
+
+darklighttoggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark", darklighttoggle.checked);
 })
 
 function hideGuild() {
