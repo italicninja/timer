@@ -8,5 +8,8 @@ For use you probably want -> https://italicninja.github.io/timer/
 
 - [ ] Dark Mode
 - [ ] Customizeable Boxes
+- [ ] Toggle boxes
+- [ ] Alarms
+- [ ] Relative Times
 - [ ] Other neat stuff in js
 
