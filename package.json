@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/italicninja/timer/issues"
   },
-  "homepage": "https://github.com/italicninja/timer#readme"
+  "homepage": "https://github.com/italicninja/timer#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }
