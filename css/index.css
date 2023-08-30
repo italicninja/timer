@@ -44,6 +44,7 @@ H2 {
   border-bottom: .5pt solid #004090;
   border-left: .5pt solid #004090;
   background-color: white;
+  transition: background 0.2s linear;
 }
 
 .divarea {
@@ -61,6 +62,7 @@ H2 {
   border-bottom: 0pt;
   border-left: 0pt;
   background-color: white;
+  transition: background 0.2s linear;
 }
 
 .cal {

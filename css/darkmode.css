@@ -19,6 +19,12 @@ body.dark p {
   color: #fff;
 }
 
+.box.dark {
+  color: white;
+  background-color: black;
+  transition: background 0.2s linear;
+}
+
 .checkbox {
   opacity: 0;
   position: absolute;
@@ -43,6 +49,16 @@ body.dark p {
 
 .fa-sun {
   color: #f39c12;
+}
+
+.box.dark {
+  color: white;
+  background-color: black;
+}
+
+.blank.dark {
+  color: white;
+  background-color: black;
 }
 
 .checkbox-label .ball {
