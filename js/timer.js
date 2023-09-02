@@ -1,4 +1,3 @@
-
 // basis date is used to convert real time to game time.
 // Use UTC functions to allow calculations to work for any timezone
 basisDate = new Date();
@@ -51,109 +50,163 @@ balMerTeam = new Array("San D'oria vs Windurst", "San D'oria vs Bastok", "Bastok
 //**************
 
 
-function getVanadielTime()  {
-
+/**
+ * Calculates and displays the current time in the Vanadiel time system.
+ */
+function getVanadielTime() {
+   // Get the current date and time
    var now = new Date();
-   vanaDate =  ((898 * 360 + 30) * msRealDay) + (now.getTime() - basisDate.getTime()) * 25;
 
+   // Constants
+   var msRealDay = 24 * 60 * 60 * 1000;  // Milliseconds in a real-world day
+
+   // Calculate Vanadiel date based on the current time
+   vanaDate = ((898 * 360 + 30) * msRealDay) + (now.getTime() - basisDate.getTime()) * 25;
+
+   // Calculate Vanadiel components
    vYear = Math.floor(vanaDate / (360 * msRealDay));
-   vMon  = Math.floor((vanaDate % (360 * msRealDay)) / (30 * msRealDay)) + 1;
-   vDate = Math.floor((vanaDate % (30 * msRealDay)) / (msRealDay)) + 1;
-   vHour = Math.floor((vanaDate % (msRealDay)) / (60 * 60 * 1000));
-   vMin  = Math.floor((vanaDate % (60 * 60 * 1000)) / (60 * 1000));
-   vSec  = Math.floor((vanaDate % (60 * 1000)) / 1000);
-   vDay  = Math.floor((vanaDate % (8 * msRealDay)) / (msRealDay));
+   vMon = Math.floor((vanaDate % (360 * msRealDay)) / (30 * msRealDay)) + 1;
+   vDate = Math.floor((vanaDate % (30 * msRealDay)) / msRealDay) + 1;
+   vHour = Math.floor((vanaDate % msRealDay) / (60 * 60 * 1000));
+   vMin = Math.floor((vanaDate % (60 * 60 * 1000)) / (60 * 1000));
+   vSec = Math.floor((vanaDate % (60 * 1000)) / 1000);
+   vDay = Math.floor((vanaDate % (8 * msRealDay)) / msRealDay);
 
+   // Format the Vanadiel components with leading zeros if needed
    if (vYear < 1000) { VanaYear = "0" + vYear; } else { VanaYear = vYear; }
-   if (vMon  < 10)   { VanaMon  = "0" + vMon; }  else { VanaMon  = vMon; }
-   if (vDate < 10)   { VanaDate = "0" + vDate; } else { VanaDate = vDate; }
-   if (vHour < 10)   { VanaHour = "0" + vHour; } else { VanaHour = vHour; }
-   if (vMin  < 10)   { VanaMin  = "0" + vMin; }  else { VanaMin  = vMin; }
-   if (vSec  < 10)   { VanaSec  = "0" + vSec; }  else { VanaSec  = vSec; }
+   if (vMon < 10) { VanaMon = "0" + vMon; } else { VanaMon = vMon; }
+   if (vDate < 10) { VanaDate = "0" + vDate; } else { VanaDate = vDate; }
+   if (vHour < 10) { VanaHour = "0" + vHour; } else { VanaHour = vHour; }
+   if (vMin < 10) { VanaMin = "0" + vMin; } else { VanaMin = vMin; }
+   if (vSec < 10) { VanaSec = "0" + vSec; } else { VanaSec = vSec; }
 
-   VanaTime = "<DIV onmouseover='javascript:dayDetails(vDay)'><FONT COLOR=" + DayColor[vDay] + ">" + VanaDay[vDay] + "</FONT>:  "
+   // Construct the formatted Vanadiel time string
+   VanaTime = "<DIV onmouseover='javascript:dayDetails(vDay)'><FONT COLOR=" + DayColor[vDay] + ">" + VanaDay[vDay] + "</FONT>:  ";
    VanaTime += VanaYear + "-" + VanaMon + "-" + VanaDate + "  " + VanaHour + ":" + VanaMin + ":" + VanaSec + "</DIV>";
 
+   // Display the formatted Vanadiel time string on the webpage
    document.getElementById("vTime").innerHTML = VanaTime;
 
+   // Call a function to get Ballista summary based on Vanadiel date and month
    getBallistaSummary(vDate, vMon);
 }
 
-function getBallistaSummary(vDate, vMon)  {
+/**
+ * Generates a summary of Ballista events based on the Vanadiel date and month.
+ *
+ * @param {number} vDate - The Vanadiel day of the month.
+ * @param {number} vMon - The Vanadiel month (1-12).
+ */
+function getBallistaSummary(vDate, vMon) {
+   // Initialize an empty string to store the Ballista event summary
    out = "";
-   for ( i = 0; i < 3; i++) {
+
+   // Loop through 3 times (for 3 upcoming days)
+   for (i = 0; i < 3; i++) {
+      // Increment the Vanadiel date and month
       vDate = vDate + 1;
+
+      // If the date exceeds 30, reset the date to 1 and increment the month
       if (vDate > 30) {
          vDate = 1;
          vMon = vMon + 1;
       }
 
-
-      if (vDate <= 6)  {
+      // Determine the Ballista level cap based on the Vanadiel date
+      if (vDate <= 6) {
          balLimit = "30";
-      } else if (vDate <=12)  {
+      } else if (vDate <= 12) {
          balLimit = "40";
-      } else if (vDate <=18)  {
+      } else if (vDate <= 18) {
          balLimit = "50";
-      } else if (vDate <=24)  {
+      } else if (vDate <= 24) {
          balLimit = "60";
-      } else if (vDate <=30)  {
+      } else if (vDate <= 30) {
          balLimit = "None";
       }
 
+      // Calculate the Ballista team based on the Vanadiel month
       balTeam = Math.floor((vMon - 1) / 4);
 
+      // Retrieve Ballista Jugner event details based on the date
       balJugner = balJug[vDate % 6];
       if (balJugner != "") {
-         balJugner = "Jugner Forest: " + balJugner + "for " + balJugTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
-      }
-      balPashhow = balPas[vDate % 6];
-         if (balPashhow != "") {
-            balPashhow = "Pashhow Marshlands: " + balPashhow + "for " + balPasTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
-      }
-      balMeriph = balMer[vDate % 6];
-         if (balMeriph != "") {
-            balMeriph = "Meriphataud Mountains: " + balMeriph + "for " + balMerTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
+         balJugner = "Jugner Forest: " + balJugner + " for " + balJugTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
       }
 
+      // Retrieve Ballista Pashhow event details based on the date
+      balPashhow = balPas[vDate % 6];
+      if (balPashhow != "") {
+         balPashhow = "Pashhow Marshlands: " + balPashhow + " for " + balPasTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
+      }
+
+      // Retrieve Ballista Meriphataud event details based on the date
+      balMeriph = balMer[vDate % 6];
+      if (balMeriph != "") {
+         balMeriph = "Meriphataud Mountains: " + balMeriph + " for " + balMerTeam[balTeam] + " with a level cap of: " + balLimit + "<BR>";
+      }
+
+      // Concatenate the Ballista event details to the summary string
       out = out + balJugner + balPashhow + balMeriph + "<HR>";
    }
 
+   // The 'out' string now contains the summary of upcoming Ballista events.
 }
 
-function dayDetails(firstDay)  {
-
+/**
+ * Generates and displays a table of day details, including weak elements.
+ *
+ * @param {number} firstDay - The index of the first day to display details for.
+ */
+function dayDetails(firstDay) {
+   // Initialize an empty string to store the table HTML
    out = '<TABLE CLASS="blank" CELLPADDING="0" CELLSPACING="0">';
+
+   // Create the table header row
    out = out + '<TR><TH WIDTH=80 ALIGN="left">Day</TH><TH>Weak Element</TH></TR>';
+
+   // Create the table rows for day and weak element details
    out = out + '<TR><TD VALIGN="TOP">';
-   for ( i = 0; i < 8; i++) {
-      if (i != 0) { out = out + '<BR>';}
+   for (i = 0; i < 8; i++) {
+      if (i != 0) { out = out + '<BR>'; }
+      // Color-code the day name based on the DayColor array
       out = out + '<FONT COLOR=' + DayColor[(firstDay + i) % 8] + '>' + VanaDay[(firstDay + i) % 8] + '</FONT>';
    }
 
+   // Add the column for weak element details
    out = out + '</TD><TD>';
-   for ( i = 0; i < 8; i++) {
-      if (i != 0) { out = out + '<BR>';}
+   for (i = 0; i < 8; i++) {
+      if (i != 0) { out = out + '<BR>'; }
+      // Color-code the weak element information based on the weakColor array
       out = out + '<FONT COLOR=' + weakColor[(firstDay + i) % 8] + '>' + weakMagic[(firstDay + i) % 8] + '</FONT>';
    }
 
-   out = out + '</TD></TR></TABLE>'
+   // Close the table and set the generated HTML as content of the "Details" element
+   out = out + '</TD></TR></TABLE>';
    document.getElementById("Details").innerHTML = out;
-
 }
 
-function clearDetails()  {
-
-      document.getElementById("Details").innerHTML = '';
-
+/**
+ * Clears the content of the HTML element with the ID "Details".
+ */
+function clearDetails() {
+   // Set the content of the HTML element with the ID "Details" to an empty string,
+   // effectively clearing any content previously displayed there.
+   document.getElementById("Details").innerHTML = '';
 }
 
-function getEarthTime()  {
-
+/**
+ * Retrieves the current Earth time and displays it in a specified HTML element.
+ */
+function getEarthTime() {
+   // Get the current date and time
    var now = new Date();
-   earthTime = formatDate(now.getTime(), 1);
-   document.getElementById("eTime").innerHTML = earthTime;
 
+   // Format the current time using the formatDate function with format type 1
+   earthTime = formatDate(now.getTime(), 1);
+
+   // Display the formatted Earth time in the HTML element with the ID "eTime"
+   document.getElementById("eTime").innerHTML = earthTime;
 }
 
 function getConquest()  {

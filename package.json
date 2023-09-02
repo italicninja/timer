@@ -1,0 +1,26 @@
+{
+  "name": "timer",
+  "version": "0.1.0",
+  "description": "Web Timer for FFXI",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italicninja/timer.git"
+  },
+  "keywords": [
+    "ffxi",
+    "timer"
+  ],
+  "author": "ItallicNinja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/italicninja/timer/issues"
+  },
+  "homepage": "https://github.com/italicninja/timer#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -5,16 +5,25 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-16">
   <link rel="shortcut icon" href="https://italicninja.github.io/timer/img/favicon.png">
   <script src="js/timer.js" language="JavaScript"></script>
-  <script src="js/buttons.js" language="JavaScript"></script>
+  <script src="js/buttons.js" language="JavaScript" defer></script>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/darkmode.css">
 </head>
-
-<body bgcolor="#FFFFFF" onload="printPage()">
+<!-- Dark Mode Toggler -->
+<div>
+  <input type="checkbox" class="checkbox" id="darklighttoggle">
+  <label for="darklighttoggle" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+<!-- Main Body -->
+<body onload="printPage()">
   <h1>FFXI Time Information</h1>
   <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
     (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
   <p>Original by Pyogenes</p>
-
   <FORM NAME='Timer' CLASS='Controls'>
     <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
       <TR>
@@ -22,19 +31,17 @@
           <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
             <TR>
               <TD WIDTH=200 HEIGHT=185>
-                <B>
-                  <FONT COLOR="#500000">General Info</FONT>
-                </B>
-                <BR><B>Vana'diel Time</B>
+                <B class="box-header">General Info</B>
+                <BR><B>Vana'diel Time:</B>
                 <BR>
                 <div id="vTime"> &nbsp; </div>
-                <B>Earth Time</B>
+                <B>Earth Time:</B>
                 <BR>
                 <div id="eTime"> &nbsp; </div>
-                <B>Current Moon Phase</B>
+                <B>Current Moon Phase:</B>
                 <BR>
                 <div id="mPhase"> &nbsp; </div>
-                <B>Conquest - Next Tally</B>
+                <B>Conquest - Next Tally:</B>
                 <BR>
                 <div id="conquest"> &nbsp; </div>
               </TD>
@@ -47,8 +54,7 @@
             <TR>
               <TD WIDTH=330 HEIGHT=185 VALIGN='TOP'>
                 <B>
-                  <FONT COLOR="#500000">Crafting Guild Info</FONT>
-                </B>
+                  <B class="box-header">Crafting Guild Info</B>
                 <DIV ID="Guilds"> &nbsp; </DIV>
               </TD>
             </TR>
@@ -60,7 +66,7 @@
             <TR>
               <TD WIDTH=240 HEIGHT=185 VALIGN='TOP'>
                 <B><A HREF=# onmousedown='javascript:clearDetails()'>
-                    <FONT COLOR="#500000">Details</FONT>
+                    <B class="box-header">Details</FONT>
                   </A></B>
                 <DIV ID="Details"> &nbsp; </DIV>
               </TD>
@@ -81,7 +87,7 @@
                   <TR>
                     <TD WIDTH=150>
                       <B>
-                        <FONT COLOR="#500000">Selbina-Mhaura Ferry</FONT>
+                        <B class="box-header">Selbina-Mhaura Ferry</FONT>
                       </B>
                     </TD>
                     <TD WIDTH='220' ALIGN='right'>
@@ -113,7 +119,7 @@
                   <TR>
                     <TD WIDTH='150'>
                       <B>
-                        <FONT COLOR="#500000">Moon Calendar</FONT>
+                        <B class="box-header">Moon Calendar</FONT>
                       </B>
                     </TD>
                     <TD WIDTH='220' ALIGN='right'>
@@ -143,7 +149,7 @@
                   <TR>
                     <TD WIDTH='100'>
                       <B>
-                        <FONT COLOR="#500000">RSE Calendar</FONT>
+                        <B class="box-header">RSE Calendar</FONT>
                       </B>
                     </TD>
                     <TD WIDTH='270' ALIGN='right'>
@@ -200,7 +206,7 @@
                   <TR>
                     <TD WIDTH='150'>
                       <B>
-                        <FONT COLOR="#500000">Day Calendar</FONT>
+                        <B class="box-header">Day Calendar</FONT>
                       </B>
                     </TD>
                     <TD WIDTH='220' ALIGN='right'>
