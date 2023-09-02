@@ -36,8 +36,11 @@ H2 {
   margin-left: 3pt;
 }
 
+.box-header {
+  color: #500000;
+}
+
 .box {
-  color: #000000;
   font-size: 9pt;
   border-top: .5pt solid #004090;
   border-right: .5pt solid #004090;
