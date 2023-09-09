@@ -1,50 +1,49 @@
-A:link {
-  color: #11a0a0;
-  text-decoration: none;
-}
-
-A:visited {
-  color: #11a0a0;
-  text-decoration: none;
-}
-
-A:hover {
-  color: #11a0a0;
-  text-decoration: none;
-}
-
-A.more {
-  color: #11a0a0;
-  text-decoration: none;
-}
-
+A,
+A.more,
 A.hdline {
   color: #11a0a0;
+  text-decoration: none;
 }
 
-H2 {
-  font-family: MS Courier New;
-  font-size: 8pt;
-  font-weight: normal;
-}
-
-.top-header {
+header {
   position: relative;
   background-color: white;
   border: 0px #ccc;
   padding: 20px;
 }
 
-.date {
+
+/* .date {
   font-family: Arial, sans-serif;
   font-size: 18pt;
   font-weight: bold;
   font-style: italic;
   margin-left: 3pt;
-}
+} */
 
 .box-header {
-  color: #500000;
+  color: #8b0404;
+}
+
+select.box {
+  width:  relative;/* Adjust the width as needed */
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+/* Style the options */
+select.box option {
+  font-size: 14px;
+  background-color: #fff; /* Background color of options */
+  color: #333; /* Text color of options */
+}
+
+/* Style the selected option */
+select.box option:checked {
+  background-color: #007bff; /* Background color of the selected option */
+  color: #fff; /* Text color of the selected option */
 }
 
 .box {
@@ -86,7 +85,7 @@ H2 {
 }
 
 .ships {
-  color: #000000;
+  color: #c51d1d;
   border-top: .5pt solid blue;
   border-right: .5pt solid blue;
   border-bottom: .5pt solid blue;

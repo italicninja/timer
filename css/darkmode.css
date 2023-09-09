@@ -15,14 +15,43 @@ body.dark {
 } /* #9b59b6 */
 
 body.dark h1,
+body.dark h4,
 body.dark p {
   color: #fff;
 }
 
-body.dark table, blank, box, header, footer {
+body.dark table {
   color: white;
   background-color: #292c35;
   transition: background 0.2s linear;
+}
+
+body.dark blank,
+body.dark box {
+  color: white;
+  background-color: #292c35;
+  transition: background 0.2s linear;
+}
+
+body.dark header,
+body.dark footer {
+  position: relative;
+  background-color: #292c35;
+  border: 0px #ccc;
+  padding: 20px;
+  transition: background 0.2s linear;
+}
+
+body.dark .box-header,
+body.dark .ships {
+  color: #b45d5d;
+  transition: background 0.2s linear;
+}
+
+
+body.dark select.box {
+  color: white;
+  background-color: #292c35;
 }
 
 .checkbox {

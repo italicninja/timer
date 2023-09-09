@@ -227,7 +227,7 @@ function getConquest()  {
 
    conqDate = formatDate(now.getTime() + timeLeft, 2);
 
-   conq = vanaConq + ' Vana´diel Days <BR>' + conqDate + ' (' + formatCountdown(timeLeft) + ')';
+   conq = vanaConq + ' Vana\'diel Days <BR>' + conqDate + ' (' + formatCountdown(timeLeft) + ')';
    document.getElementById("conquest").innerHTML = conq;
 }
 
@@ -250,7 +250,7 @@ function getRSE()  {
       }
      if (repeatCal < 1) { RSECal = ""; } else { RSECal = RSECal + '</TABLE>'; }
    } else {
-      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='120' ALIGN='LEFT'>Start</TH><TH WIDTH='120' ALIGN='LEFT'>End</TH><TH WIDTH='60' ALIGN='LEFT'>Location</TH></TR>"
+      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='150' ALIGN='LEFT'>Start</TH><TH WIDTH='90' ALIGN='LEFT'>End</TH><TH WIDTH='150' ALIGN='LEFT'>Location</TH></TR>"
       offsetTime = race * 8 * msGameDay;
 
       for ( i = 0; i < repeatCal; i++) {
@@ -478,7 +478,7 @@ function getAirSched() {
 
    outAir = "";
    outAir += "<TABLE CLASS='blank' WIDTH='400' CELLSPACING='0' CELLPADDING='0'>";
-   outAir += "<TR><TH ALIGN='LEFT'>Airship Route</TH>";
+   outAir += "<TR><TH ALIGN='LEFT' class=\"box-header\">Airship Route</TH>";
    outAir += "<TH ALIGN='LEFT'>Departure Day</TH>";
    outAir += "<TH ALIGN='LEFT'>Arrival</TH>";
    outAir += "<TH ALIGN='LEFT'>Departure</TH></TR>";
@@ -650,8 +650,8 @@ function getGuildHours()  {
 
 
    guildOut = "<TABLE CLASS='blank' CELLSPACING='0' CELLPADDING='0'>";
-   guildOut = guildOut + "<TR><TH ALIGN='left' WIDTH=85>Guild</TH>";
-   guildOut = guildOut + "<TH WIDTH=55></TH><TH WIDTH=50></TH><TH ALIGN='left' WIDTH=140>Status</TH></TR>";
+   guildOut = guildOut + "<TR><TH ALIGN='left' WIDTH=90>Guild</TH>";
+   guildOut = guildOut + "<TH WIDTH=60></TH><TH WIDTH=60></TH><TH ALIGN='left' WIDTH=140>Status</TH></TR>";
    guildOut = guildOut + "<TR><TD>" + "<A HREF=#  onmousedown='javascript:guildDetail(1)'>Alchemy</A>" 		+ "</TD>" + alchemy 	+ "</TR>";
    guildOut = guildOut + "<TR><TD>" + "<A HREF=#  onmousedown='javascript:guildDetail(2)'>Blacksmith</A>" 	+ "</TD>" + blacksmith 	+ "</TR>";
    guildOut = guildOut + "<TR><TD>" + "<A HREF=#  onmousedown='javascript:guildDetail(3)'>Boneworking</A>" 	+ "</TD>" + bonework 	+ "</TR>";
@@ -720,28 +720,28 @@ function guildDetail(guild)  {
 
    switch(guild)  {
       case 1:
-         out = "Alchemist´s guild <BR>Location:  Bastok Mines<BR>Holiday:  Lightsday<BR>Hours:  8:00-23:00";
+         out = "Alchemist's guild <BR>Location:  Bastok Mines<BR>Holiday:  Lightsday<BR>Hours:  8:00-23:00";
          break
       case 2:
-         out = "Blacksmith´s guild <BR>Location:  Bastok Metalworks, Northern San d´Oria<BR>Holiday:  Watersday<BR>Hours:  8:00-23:00";
+         out = "Blacksmith's guild <BR>Location:  Bastok Metalworks, Northern San d'Oria<BR>Holiday:  Watersday<BR>Hours:  8:00-23:00";
          break
       case 3:
-         out = "Boneworker´s guild <BR>Location:  Windurst Woods<BR>Holiday:  Windsday<BR>Hours:  8:00-23:00";
+         out = "Boneworker's guild <BR>Location:  Windurst Woods<BR>Holiday:  Windsday<BR>Hours:  8:00-23:00";
          break
       case 4:
-         out = "Goldsmith´s guild <BR>Location:  Bastok Market<BR>Holiday:  Iceday<BR>Hours:  8:00-23:00";
+         out = "Goldsmith's guild <BR>Location:  Bastok Market<BR>Holiday:  Iceday<BR>Hours:  8:00-23:00";
          break
       case 5:
-         out = "Weaver´s guild <BR>Location:  Windurst Woods<BR>Holiday:  Firesday<BR>Hours:  6:00-21:00";
+         out = "Weaver's guild <BR>Location:  Windurst Woods<BR>Holiday:  Firesday<BR>Hours:  6:00-21:00";
          break
       case 6:
-         out = "Carpenter´s guild <BR>Location:   Northern San d´Oria<BR>Holiday:  Firesday<BR>Hours:  6:00-21:00";
+         out = "Carpenter's guild <BR>Location:   Northern San d'Oria<BR>Holiday:  Firesday<BR>Hours:  6:00-21:00";
          break
       case 7:
-         out = "Leatherworker´s guild <BR>Location:   Southern San d´Oria<BR>Holiday:  Iceday<BR>Hours:  3:00-18:00";
+         out = "Leatherworker's guild <BR>Location:   Southern San d'Oria<BR>Holiday:  Iceday<BR>Hours:  3:00-18:00";
          break
       case 8:
-         out = "Fisherman´s guild <BR>Location:   Port Windurst<BR>Holiday:  Lightningday<BR>Hours:  3:00-18:00";
+         out = "Fisherman's guild <BR>Location:   Port Windurst<BR>Holiday:  Lightningday<BR>Hours:  3:00-18:00";
          break
       case 9:
          out = "Culinary guild <BR>Location:   Windurst Waters<BR>Holiday:  Darksday<BR>Hours:  5:00-20:00";
