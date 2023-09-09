@@ -19,7 +19,7 @@ body.dark p {
   color: #fff;
 }
 
-body.dark table, blank, box {
+body.dark table, blank, box, header, footer {
   color: white;
   background-color: #292c35;
   transition: background 0.2s linear;
@@ -28,6 +28,8 @@ body.dark table, blank, box {
 .checkbox {
   opacity: 0;
   position: absolute;
+  top: 5px; /* Adjust the top position as needed */
+  right: 5px; /* Adjust the right position as needed */
 }
 
 .checkbox-label {
