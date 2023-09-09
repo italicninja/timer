@@ -34,8 +34,15 @@ For use you probably want -> https://italicninja.github.io/timer/
   </ol>
 </details>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+Just a simple project to update the timer for FFXI that pyogenes made. Just wanted to add some love to it and make it hosted on Github pages. Learn and understand a bit of JS and HTML as well.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ROADMAP -->
-## Roadmap
+# Roadmap
 
 - [ ] Dark Mode
 - [ ] Customizeable Boxes
@@ -50,7 +57,7 @@ See the [open issues](https://github.com/italicninja/timer/issues) for a full li
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Developing -->
-## Developing
+# Developing
 
 ```bash
 @italicninja ➜ /workspaces/timer (dark_mode) $ http-server

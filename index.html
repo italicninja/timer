@@ -6,24 +6,31 @@
   <link rel="shortcut icon" href="https://italicninja.github.io/timer/img/favicon.png">
   <script src="js/timer.js" language="JavaScript"></script>
   <script src="js/buttons.js" language="JavaScript" defer></script>
+  <script src="https://kit.fontawesome.com/5439288da1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/darkmode.css">
 </head>
 <!-- Dark Mode Toggler -->
 <div>
-  <input type="checkbox" class="checkbox" id="darklighttoggle">
-  <label for="darklighttoggle" class="checkbox-label">
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun"></i>
-    <span class="ball"></span>
-  </label>
+  <header class="header">
+    <div class="top-header">
+      <h1>FFXI Time Information</h1>
+      <input type="checkbox" class="checkbox" id="darklighttoggle">
+      <label for="darklighttoggle" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+      </label>
+    </div>
+    <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
+      (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
+    <p>Original by Pyogenes</p>
+
+  </header>
+
 </div>
 <!-- Main Body -->
 <body onload="printPage()">
-  <h1>FFXI Time Information</h1>
-  <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
-    (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
-  <p>Original by Pyogenes</p>
   <FORM NAME='Timer' CLASS='Controls'>
     <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
       <TR>
@@ -52,7 +59,7 @@
         <TD WIDTH=345 VALIGN='TOP'>
           <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
             <TR>
-              <TD WIDTH=330 HEIGHT=185 VALIGN='TOP'>
+              <TD WIDTH=340 HEIGHT=185 VALIGN='TOP'>
                 <B>
                   <B class="box-header">Crafting Guild Info</B>
                 <DIV ID="Guilds"> &nbsp; </DIV>
@@ -244,6 +251,20 @@
         </TD>
       </TR>
     </TABLE>
-</body>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>follow</h4>
+            <div class="links">
+              <a href="https://github.com/italicninja/timer"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+   </footer>
+
+  </body>
 
 </html>

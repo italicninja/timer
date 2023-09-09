@@ -1,31 +1,38 @@
 A:link {
-  color: #004444;
+  color: #11a0a0;
   text-decoration: none;
 }
 
 A:visited {
-  color: #004444;
+  color: #11a0a0;
   text-decoration: none;
 }
 
 A:hover {
-  color: #004444;
+  color: #11a0a0;
   text-decoration: none;
 }
 
 A.more {
-  color: #004444;
+  color: #11a0a0;
   text-decoration: none;
 }
 
 A.hdline {
-  color: #004444;
+  color: #11a0a0;
 }
 
 H2 {
   font-family: MS Courier New;
   font-size: 8pt;
   font-weight: normal;
+}
+
+.top-header {
+  position: relative;
+  background-color: white;
+  border: 0px #ccc;
+  padding: 20px;
 }
 
 .date {
@@ -94,4 +101,11 @@ H2 {
   border-bottom: .5pt solid orange;
   border-left: .5pt solid orange;
   background-color: white;
+}
+
+footer {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 20px;
 }
