@@ -239,7 +239,7 @@ function getRSE()  {
    var race = document.Timer.RSErace.value;
 
    if (race > 7) {
-      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='120' ALIGN='LEFT'>Date & Time</TH><TH WIDTH='90' ALIGN='LEFT'>Race</TH><TH WIDTH='90' ALIGN='LEFT'>Location</TH></TR>"
+      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='200' ALIGN='LEFT'>Date & Time</TH><TH WIDTH='90' ALIGN='LEFT'>Race</TH><TH WIDTH='90' ALIGN='LEFT'>Location</TH></TR>"
       for ( i = 0; i < repeatCal; i++) {
          elapsedWeeks = Math.floor( (localtime - RSEtime) / (8 * msGameDay) ) + i;
          RSEstart = RSEtime + (elapsedWeeks * 8 * msGameDay);
@@ -250,7 +250,7 @@ function getRSE()  {
       }
      if (repeatCal < 1) { RSECal = ""; } else { RSECal = RSECal + '</TABLE>'; }
    } else {
-      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='150' ALIGN='LEFT'>Start</TH><TH WIDTH='90' ALIGN='LEFT'>End</TH><TH WIDTH='150' ALIGN='LEFT'>Location</TH></TR>"
+      RSECal = "<TABLE CLASS='blank' CELLPADDING='0' CELLSPACING='0'><TR><TH WIDTH='200' ALIGN='LEFT'>Start</TH><TH WIDTH='120' ALIGN='LEFT'>End</TH><TH WIDTH='60' ALIGN='LEFT'>Location</TH></TR>"
       offsetTime = race * 8 * msGameDay;
 
       for ( i = 0; i < repeatCal; i++) {
