@@ -6,8 +6,6 @@ Copied from http://www.pyogenes.com/ffxi/timer/v2.html
 
 For use you probably want -> https://italicninja.github.io/timer/
 
-##Testing &
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -47,6 +45,7 @@ Just a simple project to update the timer for FFXI that pyogenes made. Just want
 - [ ] Dark Mode
 - [ ] Customizeable Boxes
 - [ ] Toggle boxes
+- [ ] Typescript Rewrite
 - [ ] Alarms
 - [ ] Relative Times
 - [ ] Other neat stuff in js
