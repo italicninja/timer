@@ -1,269 +1,242 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-16">
-  <link rel="shortcut icon" href="https://italicninja.github.io/timer/img/favicon.png">
-  <script src="js/timer.js" language="JavaScript"></script>
-  <script src="js/buttons.js" language="JavaScript" defer></script>
-  <script src="https://kit.fontawesome.com/5439288da1.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/darkmode.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFXI Time Information</title>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5439288da1.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
-<!-- Dark Mode Toggler -->
-<div>
-  <header class="header">
-    <div class="top-header">
-      <h1>FFXI Time Information</h1>
-      <input type="checkbox" class="checkbox" id="darklighttoggle">
-      <label for="darklighttoggle" class="checkbox-label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-      </label>
-    </div>
-    <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
-      (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
-    <p>Original by Pyogenes</p>
-
-  </header>
-
-</div>
-<!-- Main Body -->
-<body onload="printPage()">
-  <FORM NAME='Timer' CLASS='Controls'>
-    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0" HEIGHT=195>
-      <TR>
-        <TD WIDTH=215 VALIGN="top">
-          <TABLE CLASS='box' CELLPADDING="0" CELLSPACING="0">
-            <TR>
-              <TD WIDTH=200 HEIGHT=185>
-                <B class="box-header">General Info</B>
-                <BR><B>Vana'diel Time:</B>
-                <BR>
-                <div id="vTime"> &nbsp; </div>
-                <B>Earth Time:</B>
-                <BR>
-                <div id="eTime"> &nbsp; </div>
-                <B>Current Moon Phase:</B>
-                <BR>
-                <div id="mPhase"> &nbsp; </div>
-                <B>Conquest - Next Tally:</B>
-                <BR>
-                <div id="conquest"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-
-        <TD WIDTH=345 VALIGN='TOP'>
-          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD WIDTH=340 HEIGHT=185 VALIGN='TOP'>
-                <B>
-                  <B class="box-header">Crafting Guild Info</B>
-                <DIV ID="Guilds"> &nbsp; </DIV>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-
-        <TD WIDTH=227 VALIGN='TOP'>
-          <TABLE CLASS='box' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD WIDTH=240 HEIGHT=185 VALIGN='TOP'>
-                <B><A HREF=# onmousedown='javascript:clearDetails()'>
-                    <B class="box-header">Details</FONT>
-                  </A></B>
-                <DIV ID="Details"> &nbsp; </DIV>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-
-      </TR>
-    </TABLE>
-
-    <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-      <TR>
-        <TD VALIGN='TOP'>
-          <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD VALIGN="top" CLASS='box' WIDTH=380>
-                <TABLE CELLPADDING="0" CLASS='blank' CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH=150>
-                      <B>
-                        <B class="box-header">Selbina-Mhaura Ferry</FONT>
-                      </B>
-                    </TD>
-                    <TD WIDTH='220' ALIGN='right'>
-                      Display lines:
-                      <SELECT NAME="FerryCount" CLASS="box">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="25">25
-                        <OPTION VALUE="50">50
-                        <OPTION VALUE="100">100
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="ferry"> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR>
-              <TD HEIGHT=10></TD>
-            </TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='150'>
-                      <B>
-                        <B class="box-header">Moon Calendar</FONT>
-                      </B>
-                    </TD>
-                    <TD WIDTH='220' ALIGN='right'>
-                      Display lines:
-                      <SELECT NAME="Moon" CLASS="box">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="15">15
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="mCalendar" CLASS='divarea'> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR>
-              <TD HEIGHT=10></TD>
-            </TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='350'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='100'>
-                      <B>
-                        <B class="box-header">RSE Calendar</FONT>
-                      </B>
-                    </TD>
-                    <TD WIDTH='500 ALIGN='right'>
-                      <SELECT NAME="RSErace" CLASS="box">
-                        <OPTION VALUE="0">Male Hume
-                        <OPTION VALUE="1">Female Hume
-                        <OPTION VALUE="2">Male Elvaan
-                        <OPTION VALUE="3">Female Elvaan
-                        <OPTION VALUE="4">Male Tarutaru
-                        <OPTION VALUE="5">Female Tarutaru
-                        <OPTION VALUE="6">Mithra
-                        <OPTION VALUE="7">Galka
-                        <OPTION VALUE="8" SELECTED>All
-                      </SELECT>
-                      Lines:
-                      <SELECT NAME="RSE" CLASS="box">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="6">6
-                        <OPTION VALUE="7">7
-                        <OPTION VALUE="8">8
-                        <OPTION VALUE="16">16
-                        <OPTION VALUE="24">24
-                        <OPTION VALUE="32">32
-                        <OPTION VALUE="40">40
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="rCal"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-        <TD WIDTH=10></TD>
-        <TD VALIGN='TOP'>
-          <TABLE CLASS='blank' CELLPADDING="2" CELLSPACING="0">
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <div id="Airship"> &nbsp; </div>
-              </TD>
-            </TR>
-            <TR>
-              <TD HEIGHT=10></TD>
-            </TR>
-            <TR>
-              <TD VALIGN='TOP' CLASS='box' WIDTH='380'>
-                <TABLE CLASS='blank' CELLPADDING="0" CELLSPACING="0">
-                  <TR>
-                    <TD WIDTH='150'>
-                      <B>
-                        <B class="box-header">Day Calendar</FONT>
-                      </B>
-                    </TD>
-                    <TD WIDTH='320' ALIGN='right'>
-                      Display lines:
-                      <SELECT NAME="DayCount" CLASS="box">
-                        <OPTION VALUE="0">0
-                        <OPTION VALUE="1">1
-                        <OPTION VALUE="2">2
-                        <OPTION VALUE="3" SELECTED>3
-                        <OPTION VALUE="4">4
-                        <OPTION VALUE="5">5
-                        <OPTION VALUE="10">10
-                        <OPTION VALUE="25">25
-                        <OPTION VALUE="50">50
-                        <OPTION VALUE="100">100
-                      </SELECT>
-                      <SELECT NAME="Day" CLASS="box">
-                        <OPTION VALUE="0">Firesday
-                        <OPTION VALUE="1">Earthsday
-                        <OPTION VALUE="2">Watersday
-                        <OPTION VALUE="3">Windsday
-                        <OPTION VALUE="4">Iceday
-                        <OPTION VALUE="5">Lightningday
-                        <OPTION VALUE="6">Lightsday
-                        <OPTION VALUE="7">Darksday
-                        <OPTION VALUE="8" SELECTED>All
-                      </SELECT>
-                    </TD>
-                  </TR>
-                </TABLE>
-                <div id="days"> &nbsp; </div>
-              </TD>
-            </TR>
-          </TABLE>
-        </TD>
-      </TR>
-    </TABLE>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col">
-            <h4>follow</h4>
-            <div class="links">
-              <a href="https://github.com/italicninja/timer"><i class="fa-brands fa-github"></i></a>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="header-left">
+                <h1 class="logo">FFXI Time Information</h1>
+                <div class="credits">
+                    <p>Updated for fun by <a href="https://github.com/italicninja">Itallicninja</a>
+                        (<a href="https://horizonxi.com/players/Kitiara">Kitiara</a> on <a href="https://horizonxi.com">HorizonXI</a>)</p>
+                    <p>Original by Pyogenes</p>
+                </div>
             </div>
-          </div>
+            <div class="header-controls">
+                <div class="social-links">
+                    <a href="https://github.com/italicninja/timer" aria-label="GitHub repository">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+                <button id="darklighttoggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
-      </div>
-   </footer>
+    </header>
 
-  </body>
+    <main class="container">
+        <form name="Timer" class="timer-form">
+            <div class="columns-container">
+                <div class="cards-container" id="column1">
+                    <!-- General Info Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="general-info">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">General Info</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-group">
+                                <h3>Vana'diel Time</h3>
+                                <div id="vTime" class="info-value"></div>
+                            </div>
+                            <div class="info-group">
+                                <h3>Earth Time</h3>
+                                <div id="eTime" class="info-value"></div>
+                            </div>
+                            <div class="info-group">
+                                <h3>Current Moon Phase 🌙</h3>
+                                <div id="mPhase" class="info-value"></div>
+                            </div>
+                            <div class="info-group">
+                                <h3>Conquest - Next Tally</h3>
+                                <div id="conquest" class="info-value"></div>
+                            </div>
+                        </div>
+                    </section>
 
+                    <!-- Crafting Guild Info Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="crafting-guild">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">Crafting Guild Info</h2>
+                        </div>
+                        <div id="Guilds" class="card-content"></div>
+                    </section>
+                </div>
+
+                <div class="cards-container" id="column2">
+                    <!-- Ferry Schedule Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="ferry">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">Selbina-Mhaura Ferry</h2>
+                            <div class="form-group">
+                                <label for="FerryCount">Display lines:</label>
+                                <select name="FerryCount" id="FerryCount" class="select-sm">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected>3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="ferry" class="card-content table-container"></div>
+                    </section>
+
+                    <!-- Airship Schedule Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="airship">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">Airship Schedule</h2>
+                        </div>
+                        <div id="Airship" class="card-content table-container"></div>
+                    </section>
+                </div>
+
+                <div class="cards-container" id="column3">
+                    <!-- RSE Calendar Card -->
+                    <section class="card fade-in rse-calendar" draggable="true" data-card-id="rse-calendar">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">RSE Calendar</h2>
+                            <div class="form-controls">
+                                <div class="form-group">
+                                    <label for="RSErace">Race:</label>
+                                    <select name="RSErace" id="RSErace" class="select-sm">
+                                        <option value="0">Male Hume</option>
+                                        <option value="1">Female Hume</option>
+                                        <option value="2">Male Elvaan</option>
+                                        <option value="3">Female Elvaan</option>
+                                        <option value="4">Male Tarutaru</option>
+                                        <option value="5">Female Tarutaru</option>
+                                        <option value="6">Mithra</option>
+                                        <option value="7">Galka</option>
+                                        <option value="8" selected>All</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="RSE">Lines:</label>
+                                    <select name="RSE" id="RSE" class="select-sm">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3" selected>3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="16">16</option>
+                                        <option value="24">24</option>
+                                        <option value="32">32</option>
+                                        <option value="40">40</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="rCal" class="card-content table-container"></div>
+                    </section>
+
+                    <!-- Moon Calendar Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="moon-calendar">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">Moon Calendar 🌓</h2>
+                            <div class="form-group">
+                                <label for="Moon">Display lines:</label>
+                                <select name="Moon" id="Moon" class="select-sm">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected>3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="mCalendar" class="card-content table-container"></div>
+                    </section>
+
+                    <!-- Day Calendar Card -->
+                    <section class="card fade-in" draggable="true" data-card-id="day-calendar">
+                        <div class="drag-handle">
+                            <i class="fas fa-grip-vertical"></i>
+                        </div>
+                        <div class="card-header">
+                            <h2 class="card-title">Day Calendar</h2>
+                            <div class="form-controls">
+                                <div class="form-group">
+                                    <label for="DayCount">Display lines:</label>
+                                    <select name="DayCount" id="DayCount" class="select-sm">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3" selected>3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Day">Day:</label>
+                                    <select name="Day" id="Day" class="select-sm">
+                                        <option value="0">Firesday</option>
+                                        <option value="1">Earthsday</option>
+                                        <option value="2">Watersday</option>
+                                        <option value="3">Windsday</option>
+                                        <option value="4">Iceday</option>
+                                        <option value="5">Lightningday</option>
+                                        <option value="6">Lightsday</option>
+                                        <option value="7">Darksday</option>
+                                        <option value="8" selected>All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="days" class="card-content table-container"></div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Tooltip container -->
+    <div id="tooltip" class="tooltip"></div>
+</body>
 </html>

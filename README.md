@@ -1,85 +1,80 @@
-# timer
-<a name="readme-top"></a>
-FFXI Timer
+# FFXI Time Information and Scheduling Tool
 
-Copied from http://www.pyogenes.com/ffxi/timer/v2.html
+This project provides a web-based tool for Final Fantasy XI players to track various in-game time-based events and schedules.
 
-For use you probably want -> https://italicninja.github.io/timer/
+## Features
 
-##Testing &
+- Vanadiel time conversion
+- Moon phase tracking
+- Transportation schedules (ferry and airship)
+- Crafting guild schedules
+- Dark mode toggle
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+## Getting Started
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+### Prerequisites
 
-Just a simple project to update the timer for FFXI that pyogenes made. Just wanted to add some love to it and make it hosted on Github pages. Learn and understand a bit of JS and HTML as well.
+- Node.js (version 14 or higher)
+- npm (usually comes with Node.js)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Installation
 
-<!-- ROADMAP -->
-# Roadmap
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/ffxi-timer.git
+   cd ffxi-timer
+   ```
 
-- [ ] Dark Mode
-- [ ] Customizeable Boxes
-- [ ] Toggle boxes
-- [ ] Alarms
-- [ ] Relative Times
-- [ ] Other neat stuff in js
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
+### Running the Application
 
-See the [open issues](https://github.com/italicninja/timer/issues) for a full list of proposed features (and known issues).
+Open the `index.html` file in a web browser to use the application.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Running Tests
 
-<!-- Developing -->
-# Developing
+To run the test suite:
 
-```bash
-@italicninja ➜ /workspaces/timer (dark_mode) $ http-server
-Starting up http-server, serving ./
-
-http-server version: 14.1.1
-
-http-server settings:
-CORS: disabled
-Cache: 3600 seconds
-Connection Timeout: 120 seconds
-Directory Listings: visible
-AutoIndex: visible
-Serve GZIP Files: false
-Serve Brotli Files: false
-Default File Extension: none
-
-Available on:
-  http://127.0.0.1:8080
-  http://172.16.5.4:8080
-Hit CTRL-C to stop the server
 ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+npm test
+```
 
+To run tests with coverage:
 
+```
+npm run test:coverage
+```
+
+## Development
+
+This project uses ES6 modules. The main application logic is divided into several modules:
+
+- `VanadielTime.js`: Handles Vanadiel time calculations and display
+- `TransportSchedule.js`: Manages transportation schedules
+- `MoonPhase.js`: Calculates and displays moon phases
+- `main.js`: Coordinates all modules and initializes the application
+
+Utility functions are located in `utils.js`, and configuration constants are in `config.js`.
+
+### Adding New Features
+
+1. Create a new module in the `js/` directory if necessary.
+2. Update `main.js` to incorporate the new module.
+3. Add corresponding test file in `js/__tests__/` directory.
+4. Update `index.html` if new UI elements are required.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Original concept by Pyogenes
+- Updated by Itallicninja (Kitiara on HorizonXI)

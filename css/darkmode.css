@@ -1,98 +1,124 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-* {
-  box-sizing: border-box;
+/* Dark mode styles */
+body.dark-theme {
+    --primary: #3b82f6;
+    --primary-light: #60a5fa;
+    --primary-dark: #2563eb;
+    --secondary: #9ca3af;
+    --accent: #8b5cf6;
+    --background: #111827;
+    --surface: #1f2937;
+    --text: #f3f4f6;
+    --text-light: #d1d5db;
+    --border: #374151;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #fff;
-  transition: background 0.2s linear;
+body.dark-theme {
+    background-color: var(--background);
+    color: var(--text);
 }
 
-body.dark {
-  background-color: #292c35;
-} /* #9b59b6 */
-
-body.dark h1,
-body.dark h4,
-body.dark p {
-  color: #fff;
+body.dark-theme .header {
+    background-color: var(--surface);
+    border-bottom-color: var(--border);
 }
 
-body.dark table {
-  color: white;
-  background-color: #292c35;
-  transition: background 0.2s linear;
+body.dark-theme .logo {
+    color: var(--primary-light);
 }
 
-body.dark blank,
-body.dark box {
-  color: white;
-  background-color: #292c35;
-  transition: background 0.2s linear;
+body.dark-theme .card {
+    background-color: var(--surface);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-body.dark header,
-body.dark footer {
-  position: relative;
-  background-color: #292c35;
-  border: 0px #ccc;
-  padding: 20px;
-  transition: background 0.2s linear;
+body.dark-theme .card-title {
+    color: var(--primary-light);
 }
 
-body.dark .box-header,
-body.dark .ships {
-  color: #b45d5d;
-  transition: background 0.2s linear;
+body.dark-theme .table-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-body.dark select.box {
-  color: white;
-  background-color: #292c35;
+body.dark-theme table {
+    background-color: var(--surface);
 }
 
-.checkbox {
-  opacity: 0;
-  position: absolute;
-  top: 5px; /* Adjust the top position as needed */
-  right: 5px; /* Adjust the right position as needed */
+body.dark-theme th {
+    background-color: var(--background);
+    color: var(--text-light);
 }
 
-.checkbox-label {
-  background-color: #111;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+body.dark-theme td {
+    border-bottom-color: var(--border);
 }
 
-.fa-moon {
-  color: #f1c40f;
+body.dark-theme tr:hover {
+    background-color: var(--background);
 }
 
-.fa-sun {
-  color: #f39c12;
+body.dark-theme select,
+body.dark-theme input[type="text"],
+body.dark-theme input[type="number"] {
+    background-color: var(--background);
+    border-color: var(--border);
+    color: var(--text);
 }
 
-.checkbox-label .ball {
-  background-color: #fff;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
+body.dark-theme select:hover,
+body.dark-theme input[type="text"]:hover,
+body.dark-theme input[type="number"]:hover {
+    border-color: var(--primary-light);
 }
 
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
+body.dark-theme select:focus,
+body.dark-theme input[type="text"]:focus,
+body.dark-theme input[type="number"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-theme .theme-toggle {
+    color: var(--text);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background-color: var(--surface);
+}
+
+body.dark-theme .footer {
+    background-color: var(--surface);
+    border-top-color: var(--border);
+    color: var(--text-light);
+}
+
+body.dark-theme a {
+    color: var(--primary-light);
+}
+
+body.dark-theme a:hover {
+    color: var(--primary);
+}
+
+body.dark-theme .error-message {
+    background-color: var(--error);
+    color: var(--text);
+}
+
+/* Dark mode specific animations */
+@keyframes fadeInDark {
+    from { background-color: var(--background); opacity: 0; }
+    to { background-color: var(--surface); opacity: 1; }
+}
+
+body.dark-theme .fade-in {
+    animation: fadeInDark 0.3s ease;
+}
+
+/* Loading state in dark mode */
+body.dark-theme .loading::after {
+    border-color: var(--primary-light);
+    border-top-color: transparent;
 }
