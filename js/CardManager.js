@@ -78,15 +78,12 @@ export class CardManager {
             card.setAttribute('draggable', 'true');
 
             // Handle drag start
-            handle.addEventListener('mousedown', (e) => {
-                // Ensure the card is draggable only when using the handle
-                card.setAttribute('draggable', 'true');
+            handle.addEventListener('mousedown', () => {
                 this.containers.forEach(container => container.classList.add('drag-active'));
             });
 
             // Handle drag end and mouse up
             const endDrag = () => {
-                card.setAttribute('draggable', 'false');
                 this.containers.forEach(container => container.classList.remove('drag-active'));
             };
 
@@ -99,54 +96,17 @@ export class CardManager {
                     return;
                 }
 
-                requestAnimationFrame(() => {
-                    card.classList.add('dragging');
-                    this.draggedCard = card;
-                });
+                card.classList.add('dragging');
+                this.draggedCard = card;
 
                 e.dataTransfer.effectAllowed = 'move';
                 e.dataTransfer.setData('text/plain', ''); // Required for Firefox
             });
 
             card.addEventListener('dragend', () => {
-                requestAnimationFrame(() => {
-                    this.draggedCard.classList.remove('dragging');
-                    this.draggedCard = null;
-                    this.updatePositions();
-                    card.setAttribute('draggable', 'false');
-                });
-            });
-
-            card.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                if (!this.draggedCard || card === this.draggedCard) return;
-
-                e.dataTransfer.dropEffect = 'move';
-                const container = card.closest('.cards-container');
-                const rect = card.getBoundingClientRect();
-                const midY = rect.top + rect.height / 2;
-                
-                if (e.clientY < midY) {
-                    container.insertBefore(this.draggedCard, card);
-                } else {
-                    container.insertBefore(this.draggedCard, card.nextElementSibling);
-                }
-            });
-
-            card.addEventListener('dragenter', (e) => {
-                e.preventDefault();
-                if (card !== this.draggedCard) {
-                    card.classList.add('drag-over');
-                }
-            });
-
-            card.addEventListener('dragleave', () => {
-                card.classList.remove('drag-over');
-            });
-
-            card.addEventListener('drop', (e) => {
-                e.preventDefault();
-                card.classList.remove('drag-over');
+                card.classList.remove('dragging');
+                this.draggedCard = null;
+                this.updatePositions();
             });
         });
 
@@ -167,15 +127,21 @@ export class CardManager {
 
             container.addEventListener('drop', (e) => {
                 e.preventDefault();
-                if (!this.draggedCard) return;
-
-                requestAnimationFrame(() => {
-                    this.draggedCard.classList.remove('dragging');
-                    this.updatePositions();
-                    this.draggedCard = null;
-                });
             });
         });
     }
 
+    getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.card:not(.dragging)')];
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
 }

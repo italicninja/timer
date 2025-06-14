@@ -111,8 +111,7 @@ export class CraftingGuild {
                         <td data-guild="${guild.name}">${status}</td>
                         <td data-guild="${guild.name}">
                             <div class="crafting-guild-info">
-                                <div>${nextChangeText}</div>
-                                <div>${formatCountdown(nextChange)}</div>
+                                ${nextChangeText} ${formatCountdown(nextChange)}
                             </div>
                         </td>
                     </tr>

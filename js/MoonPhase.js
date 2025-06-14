@@ -106,7 +106,6 @@ export class MoonPhase {
             const moonInfo = this.calculateMoonPhase();
             const phaseName = CALENDAR.PHASE_NAMES[moonInfo.phase];
 
-            console.log('Updating moon phase');
             let phaseText = document.createElement('span');
             phaseText.textContent = `${this.moonEmojis[moonInfo.phase]} ${phaseName} (${moonInfo.percent}%)`;
 
@@ -137,12 +136,10 @@ export class MoonPhase {
 
             // Add event listeners to the moon phase element
             moonPhaseElement.addEventListener('mouseenter', (event) => {
-                console.log('Mouse entered moon phase element', event.target);
                 this.showTooltip(event, moonPhaseElement);
             });
 
             moonPhaseElement.addEventListener('mouseleave', (event) => {
-                console.log('Mouse left moon phase element', event.target);
                 this.hideTooltip();
             });
 
@@ -153,8 +150,6 @@ export class MoonPhase {
             // Clear and update the phase element
             this.elements.phase.innerHTML = '';
             this.elements.phase.appendChild(container);
-
-            console.log('Moon phase updated, element:', moonPhaseElement);
 
         } catch (error) {
             console.error('Error updating moon phase:', error);
@@ -225,7 +220,6 @@ export class MoonPhase {
      * @param {HTMLElement} element - The moon phase element
      */
     showTooltip(event, element) {
-        console.log('Showing tooltip for', element);
         const phase = parseInt(element.dataset.phase);
         const percent = parseInt(element.dataset.percent);
         const phaseName = CALENDAR.PHASE_NAMES[phase];
@@ -252,7 +246,6 @@ export class MoonPhase {
         this.elements.tooltip.style.left = `${left}px`;
         this.elements.tooltip.style.top = `${top}px`;
 
-        console.log('Tooltip positioned at', left, top, 'for element at', rect.left, rect.top);
     }
 
     /**
