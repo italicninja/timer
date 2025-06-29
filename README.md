@@ -2,6 +2,13 @@
 
 This project provides a web-based tool for Final Fantasy XI players to track various in-game time-based events and schedules.
 
+FFXI Timer
+
+Copied and updated from http://www.pyogenes.com/ffxi/timer/v2.html
+
+For use you probably want -> https://italicninja.github.io/timer/
+
+
 ## Features
 
 - Vanadiel time conversion
